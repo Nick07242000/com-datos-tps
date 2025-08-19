@@ -101,11 +101,12 @@ En alta frecuencia el vapor de agua junto con otros gases son capaces de absorbe
 
 f)- El router inalambrico se ve significativamente afectado. En la vida cotidiana la atenuacion provoca que la conexion WiFi domestica, a medida que te alejas del router, la señal disminuye junto con la velocidad y suele llegar a perder la señal con la suficiente distancia. Tambien la afectan objetos tales como las paredes, muebles y personas.
 
-g) **Telefonía celular:** Sí, afecta. Las ondas de radio pierden fuerza a medida que se alejan de la antena, lo que provoca una señal más débil en distancias largas o en zonas con obstáculos (como paredes gruesas).
+g) **Telefonía celular:** Son afectadas las ondas de radio al perder fuerza a medida que se alejan de la antena, lo que provoca una señal más débil en distancias largas o en zonas con obstáculos (como paredes gruesas).
 
-**Cable coaxial:** Sí, afecta. La señal eléctrica se debilita a medida que recorre el cable debido a la resistencia y otras pérdidas. Esta pérdida es mayor en cables más largos y a frecuencias más altas.
+**Cable coaxial:** Si son afectadas ya que la señal eléctrica se debilita a medida que recorre el cable debido a la resistencia y otras pérdidas. Esta pérdida es mayor en cables más largos y a frecuencias más altas.
 
-**Fibra óptica:** Sí, afecta, pero en mucha menor medida. La atenuación se produce por la absorción y dispersión de la luz dentro del cable de fibra. Sin embargo, es un fenómeno mucho menos significativo que en los medios eléctricos, lo que permite la transmisión de datos a muy largas distancias.
+**Fibra óptica:** La atenuación se produce por la absorción y dispersión de la luz dentro del cable de fibra. Sin embargo, es un fenómeno mucho menos significativo que en los medios eléctricos, lo que permite la transmisión de datos a muy largas distancias.
+Es decir que son afectadas pero en menor medida en comparacion a los medios anteriores.
 
 ---
 
