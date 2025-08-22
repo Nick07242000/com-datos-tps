@@ -87,23 +87,25 @@ Comunicar datos a través de cualquier medio es, en esencia, un proceso que cons
 
 En esta materia nos concentramos en la transmisión de datos, hoy por hoy, dominado por las señales digitales.
 
-En el siguiente sistema:
+El siguiente sistema:
 
 _imagen del sistema - Github insert_
 
-_explicacion de tipo y modo de transmision_
+Según su direccionalidad y características temporales, corresponde a un modo de transmisión síncrono y paralelo simple en cuanto al canal (datos + reloj), donde la comunicación es unidireccional (del emisor hacia el receptor), y la sincronización está garantizada mediante la línea de reloj transmitida junto con la señal de datos.
 
-_justificacion del paradigma (sea o no el mejor)_
+Este paradigma no es el mas adecuado si quisieramos transmitir datos rapidamente y de forma direccional, ya que para la bidireccionalidad deberian duplicarse las lineas de comunicacion. 
+
+Ademas, en cuanto a la velocidad de la transmision, el desfase entre la línea de datos y la línea de reloj hace que el sistema pierda sincronización conforme aumenta la tasa de bits.
 
 ### Representación UART y codificación de caracteres
 
 Teniendo en cuenta que en la expresión más simple de señal digital, podemos pensar que un nivel de tensión “1” representa un 1 digital, y un nivel de tensión “0” representa un 0 digital.
 
-Si quisieramos transmitir la cuarta letra del nombre del grupo 'a' en codificacion ASCII, la señal se veria de la forma:
+Si quisieramos transmitir la cuarta letra del nombre del grupo 'a' en codificacion ASCII (01000001), la señal se veria de la forma:
 
 _grafico UART_
 
-Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa _En qué marcas temporales medirían la señal para determinar el valor digital de la misma_
+Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa, para evitar la zona de transición (pendiente), la decisión del bit debe hacerse en el instante medio de cada período de bit, no sobre los flancos.
 
 ---
 
