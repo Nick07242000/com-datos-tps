@@ -89,7 +89,7 @@ En esta materia nos concentramos en la transmisión de datos, hoy por hoy, domin
 
 El siguiente sistema:
 
-_imagen del sistema - Github insert_
+<img width="618" height="185" alt="image" src="https://github.com/user-attachments/assets/75dcb841-6dc4-4344-9c56-ce6c460d9874" />
 
 Según su direccionalidad y características temporales, corresponde a un modo de transmisión síncrono y paralelo simple en cuanto al canal (datos + reloj), donde la comunicación es unidireccional (del emisor hacia el receptor), y la sincronización está garantizada mediante la línea de reloj transmitida junto con la señal de datos.
 
@@ -103,9 +103,11 @@ Teniendo en cuenta que en la expresión más simple de señal digital, podemos p
 
 Si quisieramos transmitir la cuarta letra del nombre del grupo 'a' en codificacion ASCII (01000001), la señal se veria de la forma:
 
-_grafico UART_
+<img width="609" height="167" alt="image" src="https://github.com/user-attachments/assets/dd43c373-a2fa-4cf5-93d5-ad65b18b633d" />
 
-Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa, para evitar la zona de transición (pendiente), la decisión del bit debe hacerse en el instante medio de cada período de bit, no sobre los flancos.
+Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa, para evitar la zona de transición (pendiente), la decisión del bit debe hacerse en el instante medio de cada período de bit, no sobre los flancos. Esto puede visualizarse en el siguiente grafico:
+
+<img width="647" height="239" alt="image" src="https://github.com/user-attachments/assets/69dfb24d-4594-4b91-931f-0cac3435a433" />
 
 ---
 
