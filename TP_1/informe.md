@@ -135,7 +135,8 @@ La ASK es una forma sencilla de modulación en la que se manipula la amplitud de
  como FSK o PSK.
 
 ### b) Ejemplo de señal digital modulada
-_imagen_paint
+<img width="786" height="191" alt="image" src="https://github.com/user-attachments/assets/f47a475e-6eb8-47f6-bee6-fb68c8b1bae9" />
+
 
 ### c) Otras técnicas de modulación relacionadas
 Existen tambien otras técnicas basadas en modificar parámetros de una portadora sinusoidal (amplitud, frecuencia o fase) para transmitir datos digitales
