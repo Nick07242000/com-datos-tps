@@ -109,17 +109,60 @@ Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa _En qué
 
 ## Limitaciones de Transmisión Inalámbrica de Señales Escalonadas
 
-_Investigar y resumir brevemente los motivos por los cuales no es conveniente transmitir de manera inalámbrica una señal escalonada_
+Transmitir señales escalonadas (o pulsos cuadrados) de forma inalámbrica presenta varios inconvenientes derivados de su análisis espectral y las limitaciones del medio de transmisión. Según la transformada de Fourier, una señal cuadrada ideal requiere un ancho de banda infinito, ya que se compone de una fundamental más armónicos infinitos de frecuencias cada vez más altas. Esto genera varios inconvenientes:
 
-Es por esto que existen otras tecnicas de modulacion como: _la tecnica del grafico_
+- **Ineficiencia espectral**: ocuparía un ancho de banda enorme, interfiriendo con otros sistemas inalámbricos.  
+- **Atenuación de altas frecuencias**: las componentes de alta frecuencia se degradan rápidamente en medios reales, reduciendo la fidelidad de la señal recibida.  
+- **Sensibilidad al ruido**: al tener tantas componentes espectrales, cualquier interferencia externa puede distorsionar gravemente la señal.  
+- **Alto consumo de potencia**: generar y transmitir pulsos tan “agudos” demanda más energía y hardware complejo.  
 
-_paint de como ser veria la señal digital modulada_
-
-_otras técnicas de modulación basadas en los mismos principios_
-
-Un termino importante en la modulacion de señales es BER _definicion + cual tecnica es mejor_ 
+Por estos motivos, la transmisión inalámbrica moderna no envía directamente señales digitales escalonadas, sino que se **modulan sobre ondas sinusoidales** (portadoras analógicas) que viajan de forma más estable y eficiente.
 
 ---
+
+## Análisis del gráfico
+
+### a) Técnica de modulación representada
+El gráfico muestra un ejemplo de **ASK (Amplitude Shift Keying)**.  
+En esta técnica, la amplitud de la portadora varía según el bit transmitido:  
+- Bit **1** → portadora con amplitud máxima.  
+- Bit **0** → portadora con amplitud reducida o nula.
+
+La ASK es una forma sencilla de modulación en la que se manipula la amplitud de la
+ portadora para transmitir la información digital. Este tipo de modulación es útil en
+ comunicaciones donde se necesita una implementación simple, aunque puede ser más
+ susceptible al ruido y las interferencias en comparación con otras técnicas de modulación
+ como FSK o PSK.
+
+### b) Ejemplo de señal digital modulada
+_imagen_paint
+
+### c) Otras técnicas de modulación relacionadas
+Existen tambien otras técnicas basadas en modificar parámetros de una portadora sinusoidal (amplitud, frecuencia o fase) para transmitir datos digitales
+
+- **Modulación por Desplazamiento de Frecuencia (FSK):**  
+  La frecuencia de la onda portadora se varía en función de los datos digitales. Por ejemplo, se puede utilizar una frecuencia para representar un bit **"0"** y otra frecuencia para representar un bit **"1"**.
+
+- **Modulación por Desplazamiento de Fase (PSK):**  
+  En PSK, la fase de la onda portadora se cambia para representar los datos.  
+  - En **BPSK (Binary Phase Shift Keying)**, se utilizan dos fases (0° y 180°) para representar los bits "0" y "1".  
+  - En **QPSK (Quadrature Phase Shift Keying)**, se utilizan cuatro fases para representar **2 bits por símbolo**.
+
+- **Modulación por Amplitud en Cuadratura (QAM):**  
+  Esta técnica combina ASK y PSK. Tanto la amplitud como la fase de la portadora se modifican para representar los datos. Por ejemplo, **16-QAM** puede representar **4 bits por símbolo** al utilizar 16 combinaciones diferentes de amplitud y fase.
+
+- **Modulación por Pulsos (PAM – Pulse Amplitude Modulation):**  
+  Similar a ASK, en PAM se varía la amplitud de los pulsos en función de la señal de entrada. Esta técnica se utiliza a menudo en sistemas de transmisión digital.
+
+- **Modulación por Desplazamiento de Frecuencia en Cuadratura (QFSK):**  
+  Es una variante de FSK que utiliza dos frecuencias para representar dos bits, similar a cómo QPSK utiliza dos bits por fase.
+
+
+### d) Bit Error Rate (BER)
+El Bit Error Rate (BER) es una métrica de rendimiento que mide la proporción de bits recibidos erróneamente respecto al total transmitidos en un canal. Depende de factores como ruido, interferencia y SNR. Un BER bajo (ej. 10^{-5}) indica mayor fiabilidad.
+
+En términos de BER, entre las técnicas mencionadas, PSK (especialmente BPSK y QPSK) ofrece las mejores prestaciones, ya que es más robusta al ruido de amplitud al depender solo de la fase. FSK es intermedia, resistente a variaciones de amplitud pero sensible a interferencias frecuenciales. ASK tiene el peor rendimiento, ya que el ruido afecta directamente la amplitud, aumentando los errores en canales ruidosos. Técnicas avanzadas como QAM pueden tener BER más alto en condiciones adversas, pero optimizan otros aspectos como eficiencia espectral.
+
 
 ## Implementación en Packet Tracer
 
