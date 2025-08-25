@@ -208,6 +208,30 @@ c) Columna 5 → Dirección IP o nombre del router/interfaz alcanzada.
 
 En este ejemplo los resultados son mas parejos, por lo que no hay diferencia que cotejar.
 
+### Conexión de nueva laptop
+
+Se agrega en la vista física una nueva conexión (laptop1) con la que verificaremos el alcance y la conexión de la red Wi-Fi al conectarse con otro dispositivo dentro de la red que tengan una conexión al 100%.
+
+Primero se coloca la computadora en una posición donde la señal llega al 4%: 
+
+<img width="300" src="https://github.com/user-attachments/assets/fb1ad25d-d7bc-4ece-a4b6-f6fa6bad0027" /><br>
+
+<img width="400" src="https://github.com/user-attachments/assets/9d2df8b0-7404-49c9-81ff-b22ecdefe992" />
+
+Luego se intenta contar con alguna de las máquinas conectadas al 100% y se obtiene:
+
+<img width="500" src="https://github.com/user-attachments/assets/16222374-70e2-4ae1-b13a-034e359209bc" />
+
+Podemos ver que obtenemos mejores tiempos de transmisión de datos de lo que se podría haber esperado al estar tan lejos de la señal del router.
+
+Para el siguiente caso, se la aleja aún más de la señal.
+
+<img width="400" src="https://github.com/user-attachments/assets/26c5be28-b743-4545-87ec-85ada2beaa9a" />
+
+Ya al no tener señal del router (0%), no puede transferir datos a otros dispositivos de la red. Prueba 4 veces sin resultados positivos.
+
+<img width="500" src="https://github.com/user-attachments/assets/63834917-0610-4810-903c-7c74f7d24602" />
+
 ---
 
 ## Resultados
