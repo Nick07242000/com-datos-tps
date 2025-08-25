@@ -208,28 +208,110 @@ Se implementó una red simple compuesta por un router inalámbrico, una computad
 
 ### Configuración de Router
 
+<img  width="500" src="https://github.com/user-attachments/assets/bc0b0dd3-f1a3-4f79-baed-26e70b65b0f7" /><br>
+
+<img  width="500" src="https://github.com/user-attachments/assets/858a8662-8584-43a2-8c80-e09151ae35d2" />
+
 Los parámetros básicos configurados fueron:
 
-* Dirección IP del router: 192.168.0.1  
-* Máscara de subred: 255.255.255.0  
-* SSID: ...  
-* Seguridad: WPA2-PSK
+* Dirección IP del router: 192.168.0.1
+* Máscara de subred: 255.255.255.0
+* SSID: Virus
+* Seguridad:
+  - WPA2-PSK
+  - PSK Pass Phrase 3161341211620
+  - Encriptación: AES
 
-*router: en q frecuencia opera \+ q region del espectro corresponde \+ en q banda opera*
+El router opera en una frecuencia de 2.4 GHz, perteneciente a la región de Microondas del espectro y opera en banda ISM (Industrial, Scientific and Medical) que va desde 2.4 a 2.4835 GHz.
 
 ### Configuración de PC
 
-*q hicimos*
+Se conecta una computadora de escritorio (PC) al router por medio de un cable "copper straight-through" y se utiliza una interfaz de red del tipo FastEthernet que se configura en DHCP para obtener automáticamente una dirección IP.
+
+<img  width="500" src="https://github.com/user-attachments/assets/ef47239a-d594-40ca-9baa-7cda5299e77a" /><br>
+
+<img  width="500" src="https://github.com/user-attachments/assets/72df57bd-f11a-4101-a99a-b73d0a41d6e0" />
 
 ### Configuracion de Notebook
 
-*q hicimos*
+Para agregar a la red una notebook primero cambiamos la ranura de expansión que tenia por defecto y le agregamos una NIC Wi-Fi, especificamente la tarjeta inalámbrica WPC300N que permite asociarse al Access Point ya que el módulo soporta protocolos que usa Ethernet para el acceso LAN.
+
+<img  width="500" src="https://github.com/user-attachments/assets/de966853-deeb-4561-b832-51100d397678" />
+
+Luego se procede a conectar la laptop:
+
+<img width="300"  src="https://github.com/user-attachments/assets/ce227e1b-b536-4aca-83a0-2de9a82e38f0" />
+
+<img width="300" src="https://github.com/user-attachments/assets/78a9ee30-b09d-4b8e-b4e6-ca4a57451ef0" />
+
+Con esta nueva conexión ya tenemos nuestra red completa.
+
+
+<img width="500" src="https://github.com/user-attachments/assets/33a201db-88e2-4e89-9761-1b3b0cd7532a" />
 
 ### Conectividad
 
-*resultados*
+Como se configuro con DHCP, cada una recibió una IP automática del router:
 
-\_\_
+<img width="500" src="https://github.com/user-attachments/assets/ddf15990-6232-44f4-a968-885ee5649101" />
+
+La PC recibio la IPv4 192.168.0.100 y la laptop recibio la IPv4 192.168.0.101
+
+Por medio del comando ``` ping  [IP del dispositivo destino] ``` se comprueban las conectividades entre los 2 dispositivos individualmente:
+
+Desde la laptop:
+
+<img width="300" src="https://github.com/user-attachments/assets/e6522eea-c91b-4a24-800c-f8b85c70efc9" />
+
+Desde la PC:
+
+<img width="300" src="https://github.com/user-attachments/assets/ea5cb837-04d7-46ee-ad0d-cb5f22bb10e0" />
+
+Interpretaciones de los resultados:
+
+- Ambos equipos tienen conectividad exitosa (0% pérdida) y ell promedio de respuesta (≈27 ms) es similar en ambos casos, lo cual es lógico porque están en la misma red local.
+
+- Los tiempos individuales muestran diferencias: en la PC hay más variabilidad (latencias irregulares) y en la notebook los resultados son más consistentes, lo que indica mayor estabilidad de la conexión inalámbrica en esa simulación. 
+
+En PacketTracer estas diferencias son aleatorias pero se utiliza este ejemplo para analizar un caso posible.
+
+El siguiente comando que se evalua es ``` tracert  [IP del dispositivo destino] ``` el cual sirve para ver el camino que siguen los paquetes desde el dispositivo origen hacia el destino. Envía paquetes ICMP con diferentes valores de TTL (Time To Live), cada router que atraviesa el paquete reduce el TTL en 1 y cuando el TTL llega a 0, ese router responde y se muestra en la salida. Así se va revelando salto por salto toda la ruta.
+
+<img width="500" src="https://github.com/user-attachments/assets/2aaf7733-6856-4cb0-9e46-705aaea5fe10" />
+
+Aqui se puede ver:
+
+a) Columna 1 → Número de salto.
+
+b) Columna 2, 3, 4 → Tiempos de respuesta de cada intento en milisegundos (ms). Se hacen 3 pruebas por salto para ver estabilidad.
+
+c) Columna 5 → Dirección IP o nombre del router/interfaz alcanzada.
+
+En este ejemplo los resultados son mas parejos, por lo que no hay diferencia que cotejar.
+
+### Conexión de nueva laptop
+
+Se agrega en la vista física una nueva conexión (laptop1) con la que verificaremos el alcance y la conexión de la red Wi-Fi al conectarse con otro dispositivo dentro de la red que tengan una conexión al 100%.
+
+Primero se coloca la computadora en una posición donde la señal llega al 4%: 
+
+<img width="300" src="https://github.com/user-attachments/assets/fb1ad25d-d7bc-4ece-a4b6-f6fa6bad0027" /><br>
+
+<img width="400" src="https://github.com/user-attachments/assets/9d2df8b0-7404-49c9-81ff-b22ecdefe992" />
+
+Luego se intenta contar con alguna de las máquinas conectadas al 100% y se obtiene:
+
+<img width="500" src="https://github.com/user-attachments/assets/16222374-70e2-4ae1-b13a-034e359209bc" />
+
+Podemos ver que obtenemos mejores tiempos de transmisión de datos de lo que se podría haber esperado al estar tan lejos de la señal del router.
+
+Para el siguiente caso, se la aleja aún más de la señal.
+
+<img width="400" src="https://github.com/user-attachments/assets/26c5be28-b743-4545-87ec-85ada2beaa9a" />
+
+Ya al no tener señal del router (0%), no puede transferir datos a otros dispositivos de la red. Prueba 4 veces sin resultados positivos.
+
+<img width="500" src="https://github.com/user-attachments/assets/63834917-0610-4810-903c-7c74f7d24602" />
 
 ---
 
