@@ -91,9 +91,11 @@ El siguiente sistema:
 
 <img width="618" height="185" alt="image" src="https://github.com/user-attachments/assets/75dcb841-6dc4-4344-9c56-ce6c460d9874" />
 
-Según su direccionalidad y características temporales, corresponde a un modo de transmisión síncrono y paralelo simple en cuanto al canal (datos + reloj), donde la comunicación es unidireccional (del emisor hacia el receptor), y la sincronización está garantizada mediante la línea de reloj transmitida junto con la señal de datos.
+Corresponde a un modo de transmisión síncrono y paralelo simple en cuanto al canal (datos + reloj), donde la comunicación es unidireccional (del emisor hacia el receptor), y la sincronización está garantizada mediante la línea de reloj transmitida junto con la señal de datos.
 
-Este paradigma no es el mas adecuado si quisieramos transmitir datos rapidamente y de forma direccional, ya que para la bidireccionalidad deberian duplicarse las lineas de comunicacion. 
+Según su direccionalidad y características temporales, decimos que es simplex ya que la comunicacion ocurre en un solo sentido, y de transmision en derie ya que los datos se envian de forma secuencial por un mismo canal.
+
+Este paradigma no es el mas adecuado si quisieramos transmitir datos rapidamente y de forma direccional, ya que para la bidireccionalidad deberian duplicarse las lineas de comunicacion, siendo asi una comunicacion full-duplex. 
 
 Ademas, en cuanto a la velocidad de la transmision, el desfase entre la línea de datos y la línea de reloj hace que el sistema pierda sincronización conforme aumenta la tasa de bits.
 
