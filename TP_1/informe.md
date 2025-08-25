@@ -127,7 +127,7 @@ Se implementó una red simple compuesta por un router inalámbrico, una computad
 
 ### Configuración de Router
 
-<img  width="500" src="https://github.com/user-attachments/assets/bc0b0dd3-f1a3-4f79-baed-26e70b65b0f7" />
+<img  width="500" src="https://github.com/user-attachments/assets/bc0b0dd3-f1a3-4f79-baed-26e70b65b0f7" /><br>
 
 <img  width="500" src="https://github.com/user-attachments/assets/858a8662-8584-43a2-8c80-e09151ae35d2" />
 
@@ -147,7 +147,7 @@ El router opera en una frecuencia de 2.4 GHz, perteneciente a la región de Micr
 
 Se conecta una computadora de escritorio (PC) al router por medio de un cable "copper straight-through" y se utiliza una interfaz de red del tipo FastEthernet que se configura en DHCP para obtener automáticamente una dirección IP.
 
-<img  width="500" src="https://github.com/user-attachments/assets/ef47239a-d594-40ca-9baa-7cda5299e77a" />
+<img  width="500" src="https://github.com/user-attachments/assets/ef47239a-d594-40ca-9baa-7cda5299e77a" /><br>
 
 <img  width="500" src="https://github.com/user-attachments/assets/72df57bd-f11a-4101-a99a-b73d0a41d6e0" />
 
