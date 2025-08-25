@@ -336,17 +336,15 @@ Los resultados de la práctica permiten evidenciar la relación entre los concep
 
 ## Discusión y conclusiones
 
-A partir de la práctica y el análisis realizado se pueden establecer las siguientes conclusiones:
+A partir de la práctica y el análisis realizado se puede establecer que los conceptos de ondas, modulación, espectro y sincronización no quedan en un plano abstracto, sino que se materializan en fenómenos visibles al implementar redes y transmitir datos.
 
-- Relación teoría–práctica: los conceptos de ondas, modulación, espectro y sincronización no quedan en un plano abstracto, sino que se materializan en fenómenos visibles al implementar redes y transmitir datos.
+Pudimos observar como la comunicación digital presenta restricciones de velocidad y bidireccionalidad según el paradigma elegido. Por ejemplo, en la transmisión síncrona simple, el desfase entre datos y reloj limita la tasa de bits alcanzable.
 
-- Limitaciones de la transmisión: la comunicación digital presenta restricciones de velocidad y bidireccionalidad según el paradigma elegido. Por ejemplo, en la transmisión síncrona simple, el desfase entre datos y reloj limita la tasa de bits alcanzable.
+Tambien observamos como en entornos inalámbricos, la atenuación y los obstáculos reducen significativamente el alcance de la señal. La banda de 2.4 GHz ofrece mayor cobertura que la de 5 GHz, pero con menor velocidad y mayor riesgo de interferencias.
 
-- Medio de transmisión: en entornos inalámbricos, la atenuación y los obstáculos reducen significativamente el alcance de la señal. La banda de 2.4 GHz ofrece mayor cobertura que la de 5 GHz, pero con menor velocidad y mayor riesgo de interferencias.
+Ademas, descubrimos la importancia de la modulación, debido a la imposibilidad práctica de transmitir pulsos cuadrados de manera inalámbrica, lo que demuestra la necesidad de modular sobre portadoras sinusoidales para garantizar eficiencia espectral y robustez frente al ruido.
 
-- Importancia de la modulación: la imposibilidad práctica de transmitir pulsos cuadrados de manera inalámbrica demuestra la necesidad de modular sobre portadoras sinusoidales para garantizar eficiencia espectral y robustez frente al ruido.
-
-- Simulación en Packet Tracer: permitió configurar dispositivos, validar conectividad y observar fenómenos como la pérdida de señal por distancia, cumpliendo con los objetivos planteados.
+Por ultimo, la simulación en Packet Tracer permitió configurar dispositivos, validar conectividad y observar fenómenos como la pérdida de señal por distancia, cumpliendo con los objetivos planteados.
 
 En conclusión, el trabajo integró conceptos de la capa física con aplicaciones prácticas de configuración de red, mostrando cómo fenómenos como la atenuación, el BER y la modulación impactan directamente en el diseño y rendimiento de sistemas de comunicación reales.
 
