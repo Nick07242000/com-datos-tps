@@ -10,15 +10,18 @@ _Nombre Apellidos; usar iniciales para el segundo nombre_  ??? wat
 **Datacenter**
 
 **Universidad Nacional de Córdoba - Facultad de Ciencias Exactas Fisicas y Naturales**  
-**Comunicaciones de Datos**
-**TBD**
-**TBD**
+
+**Comunicaciones de Datos** 
+
+**Santiago M. Henn - Miguel Solinas** 
+
+**25/08/2025**
 
 ---
 
 ### Información de los autores
- 
-- **Información de contacto**: _correo electrónico_  
+
+* **Información de contacto**: *victoria.castro@mi.unc.edu.ar - fabian.hidalgo@mi.unc.edu.ar - constanza.medran@mi.unc.edu.ar - juan.vizgarra@mi.unc.edu.ar*
 
 ---
 

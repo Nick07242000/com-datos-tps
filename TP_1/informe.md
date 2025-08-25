@@ -10,15 +10,18 @@
 **Datacenter**
 
 **Universidad Nacional de Córdoba - Facultad de Ciencias Exactas Fisicas y Naturales**  
+
 **Comunicaciones de Datos** 
-**TBD** 
-**TBD**
+
+**Santiago M. Henn - Miguel Solinas** 
+
+**25/08/2025**
 
 ---
 
 ### Información de los autores
 
-* **Información de contacto**: *correo electrónico*
+* **Información de contacto**: *victoria.castro@mi.unc.edu.ar - fabian.hidalgo@mi.unc.edu.ar - constanza.medran@mi.unc.edu.ar - juan.vizgarra@mi.unc.edu.ar*
 
 ---
 
@@ -317,14 +320,40 @@ Ya al no tener señal del router (0%), no puede transferir datos a otros disposi
 
 ## Resultados
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Se presentan las tablas de IP asignadas, la verificación de conectividad mediante ping y traceroute, y el análisis de cobertura de la red inalámbrica.
+Los resultados de la práctica permiten evidenciar la relación entre los conceptos teóricos de comunicaciones digitales y su implementación práctica en una red simulada:
+
+- Asignación de IPs: la PC y la notebook obtuvieron direcciones IP distintas mediante DHCP del router, confirmando la correcta configuración de la red.
+
+- Pruebas de conectividad (ping): ambas estaciones se comunicaron sin pérdidas de paquetes (0%), con tiempos de respuesta en el orden de los 25–30 ms. Esto refleja una red local estable y correctamente configurada.
+
+- Traceroute: el recorrido de los paquetes confirmó que ambos equipos se comunican dentro de la misma red sin necesidad de saltos intermedios adicionales.
+
+- Cobertura Wi-Fi: se observó cómo la intensidad de señal afecta la conectividad. A medida que la notebook se alejó del router, el rendimiento empeoró y finalmente la comunicación se interrumpió al perder completamente la señal.
+
+- Codificación de caracteres con UART: se representaron las tramas correspondientes al envío de un símbolo ASCII, mostrando cómo deben tomarse las muestras en el centro de cada intervalo de bit para evitar errores de sincronización.
+
+- Análisis espectral: se comprobó que señales cuadradas no pueden transmitirse eficientemente de manera inalámbrica por su gran ancho de banda, justificando el uso de técnicas de modulación como ASK, FSK o PSK.
 
 ## Discusión y conclusiones
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Se discuten los resultados obtenidos, las limitaciones del experimento y las posibles mejoras tanto en la configuración de la red como en la metodología de análisis.
+A partir de la práctica y el análisis realizado se pueden establecer las siguientes conclusiones:
+
+- Relación teoría–práctica: los conceptos de ondas, modulación, espectro y sincronización no quedan en un plano abstracto, sino que se materializan en fenómenos visibles al implementar redes y transmitir datos.
+
+- Limitaciones de la transmisión: la comunicación digital presenta restricciones de velocidad y bidireccionalidad según el paradigma elegido. Por ejemplo, en la transmisión síncrona simple, el desfase entre datos y reloj limita la tasa de bits alcanzable.
+
+- Medio de transmisión: en entornos inalámbricos, la atenuación y los obstáculos reducen significativamente el alcance de la señal. La banda de 2.4 GHz ofrece mayor cobertura que la de 5 GHz, pero con menor velocidad y mayor riesgo de interferencias.
+
+- Importancia de la modulación: la imposibilidad práctica de transmitir pulsos cuadrados de manera inalámbrica demuestra la necesidad de modular sobre portadoras sinusoidales para garantizar eficiencia espectral y robustez frente al ruido.
+
+- Simulación en Packet Tracer: permitió configurar dispositivos, validar conectividad y observar fenómenos como la pérdida de señal por distancia, cumpliendo con los objetivos planteados.
+
+En conclusión, el trabajo integró conceptos de la capa física con aplicaciones prácticas de configuración de red, mostrando cómo fenómenos como la atenuación, el BER y la modulación impactan directamente en el diseño y rendimiento de sistemas de comunicación reales.
 
 ---
 
 ## Referencias
 
-[1] ...
+[1] - Apuntes de Teoría de las Comunicaciones
+
+[2] - Apuntes de Comunicaciones Digitales
