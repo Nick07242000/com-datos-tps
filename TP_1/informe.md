@@ -1,16 +1,17 @@
 # Título
 
-**Nombres**  
-- Constanza Medran
-- Fabian N Hidalgo
-- Juan I Vizgarra
+**Nombres**
+
+- Constanza Medran  
+- Fabian N Hidalgo  
+- Juan I Vizgarra  
 - Sofia V Castro
 
 **Datacenter**
 
 **Universidad Nacional de Córdoba - Facultad de Ciencias Exactas Fisicas y Naturales**  
-**Comunicaciones de Datos**
-**TBD**
+**Comunicaciones de Datos** 
+**TBD** 
 **TBD**
 
 ---
@@ -41,11 +42,11 @@ El presente trabajo tiene como objetivo integrar conocimientos previos de comuni
 
 La comprensión de los fenómenos físicos que gobiernan la propagación de ondas electromagnéticas, junto con el conocimiento de técnicas de modulación y estructuras de señales, resulta esencial para el diseño y análisis de redes de datos.
 
-En la primera parte, se realiza un repaso de los fundamentos esenciales: ondas electromagnéticas, procesos de modulación y demodulación, y representación de señales en tiempo continuo y discreto. 
+En la primera parte, se realiza un repaso de los fundamentos esenciales: ondas electromagnéticas, procesos de modulación y demodulación, y representación de señales en tiempo continuo y discreto.
 
-En la segunda parte, se analiza un sistema digital desde la perspectiva de su direccionalidad, su codificación y las implicancias en velocidad y bidireccionalidad. 
+En la segunda parte, se analiza un sistema digital desde la perspectiva de su direccionalidad, su codificación y las implicancias en velocidad y bidireccionalidad.
 
-Posteriormente, se estudian aspectos prácticos de modulación digital, se discuten limitaciones de la transmisión inalámbrica de señales escalonadas, y se evalúa el rendimiento mediante métricas como la tasa de error de bit (BER). 
+Posteriormente, se estudian aspectos prácticos de modulación digital, se discuten limitaciones de la transmisión inalámbrica de señales escalonadas, y se evalúa el rendimiento mediante métricas como la tasa de error de bit (BER).
 
 Finalmente, se implementa en Packet Tracer una red simple para evaluar la configuración de dispositivos y las características de las señales.
 
@@ -57,27 +58,57 @@ Finalmente, se implementa en Packet Tracer una red simple para evaluar la config
 
 Se realiza un repaso de los siguientes conceptos teóricos:
 
-* **Ondas electromagnéticas**: ...
-* **Modulación y demodulación**: ...
-* **Señales en tiempo continuo**: ...
-* **Señales en tiempo discreto**: ...
+* **Ondas electromagnéticas**: Perturbación que se propaga a través del espacio, compuestas por campos eléctricos y magnéticos que oscilan de manera perpendicular entre sí.  
+* **Modulación y demodulación**: Proceso de modificar una señal portadora (generalmente de alta frecuencia) con la información de una señal de mensaje para que esta última pueda ser transmitida de manera eficiente a larga distancia. En el otro extremo, la demodulación es el proceso inverso, donde se recupera la señal de mensaje original a partir de la señal portadora modulada.  
+* **Señales en tiempo continuo**: Tambien llamada *señal analógica*, es aquella que se define para cada instante de tiempo. Es decir, su amplitud puede tomar cualquier valor dentro de un rango continuo.  
+* **Señales en tiempo discreto**: O *señal digital*, solo se define en instantes de tiempo específicos y discretos. Estas señales se obtienen al muestrear una señal de tiempo continuo a intervalos regulares, por lo que su amplitud solo puede tomar un conjunto finito de valores.
 
 ### Análisis de Fenómenos y Espectro Electromagnético
 
 Dada la siguiente onda electromagnética:
 
-_imagen del grafico - se inserta en Github_
+*imagen del grafico \- se inserta en Github*
 
-_explicacion de como sacamos estos datos_
+*Luego de analizar el grafico podemos sacar como dato la longitud de la onda, sabiendo la constante de la velocidad de propagacion de la luz, realizamos la siguiente formula:*
 
-| Parámetro        | Valor estimado | Unidad |
-| ---------------- | -------------- | ------ |
-| Frecuencia       | ...            | Hz     |
-| Longitud de onda | ...            | m      |
+v \=λf  
 
-_en que region opera esta onda y en que banda + que dispositivos para comunicaciones de datos operan en esta banda_
+    λ \= 60 \[mm\]	              v \= 3x108\[m/s\]
 
-_fenonemenos de la linea roja + afectaciones al dispositivos de ejemplos + afectaciones a transmiciones de telefonia/cable.coaxial/fibra.optica_
+          f \= v/f \= 5x109\[Hz\]  \= 5 GHz
+
+| Parámetro | Valor estimado | Unidad |
+| :---- | :---- | :---- |
+| Frecuencia | 5 | GHz |
+| Longitud de onda | 60 | mm |
+
+c)- La onda opera en la región de las **microondas**. Según las definiciones de la Unión Internacional de Telecomunicaciones (ITU),a una frecuencia de 5 GHz se encuentra en la **banda C** o **Banda SHF** (Super High Frequency).
+
+Segun la ITU:
+
+* **Banda SHF:** Esta región del espectro electromagnético abarca frecuencias de **3 GHz a 30 GHz**. La frecuencia de 5 GHz cae directamente en este rango.  
+* **Banda C:** Esta banda, definida para ciertas aplicaciones, generalmente abarca un rango de frecuencias que incluye 5 GHz. Por ejemplo, en telecomunicaciones satelitales, la banda C se utiliza para la transmisión de señales en este rango de frecuencia.
+
+d)- Existen varios dispositivos de comunicación de datos operan en el rango de \[3-30\]GHz de frecuencia.
+
+* **Puntos de acceso Wi-Fi y routers inalámbricos:** Muchos dispositivos de redes Wi-Fi modernas, especialmente los que utilizan los estándares 802.11n, 802.11ac y 802.11ax (Wi-Fi 4, 5 y 6), operan en la banda de 5 GHz. Esto permite una mayor velocidad de datos y menos interferencia que la banda de 2.4 GHz.  
+* **Comunicaciones por satélite:** La banda C es ampliamente utilizada en la comunicación satelital para transmisiones de televisión y telefonía.  
+* **Redes de área metropolitana inalámbricas (WMAN):** Tecnologías como WiMAX a menudo usan la banda de 5 GHz para proporcionar conectividad de banda ancha a grandes áreas.
+
+Un ejemplo de un dispositivo que opera en esta banda es el **router inalámbrico WRT300N,** tipo de router que es compatible con el estándar 802.11n, que utiliza tanto las bandas de 2.4 GHz como 5 GHz para la transmisión de datos.
+
+e)- Con la linea roja situada en el grafico podemos observar el fenomeno de la atenuacion, que es la perdida de intensidad o potencia de la señal en un medio de transmision, a medida que se desplaza la onda. Esta puede ser causada por resistencia y absorcion, longitud del cable en la que se transporta, interferencias , entre otras.
+
+En alta frecuencia el vapor de agua junto con otros gases son capaces de absorber la energia de la señal.
+
+f)- El router inalambrico se ve significativamente afectado. En la vida cotidiana la atenuacion provoca que la conexion WiFi domestica, a medida que te alejas del router, la señal disminuye junto con la velocidad y suele llegar a perder la señal con la suficiente distancia. Tambien la afectan objetos tales como las paredes, muebles y personas.
+
+g) **Telefonía celular:** Son afectadas las ondas de radio al perder fuerza a medida que se alejan de la antena, lo que provoca una señal más débil en distancias largas o en zonas con obstáculos (como paredes gruesas).
+
+**Cable coaxial:** Si son afectadas ya que la señal eléctrica se debilita a medida que recorre el cable debido a la resistencia y otras pérdidas. Esta pérdida es mayor en cables más largos y a frecuencias más altas.
+
+**Fibra óptica:** La atenuación se produce por la absorción y dispersión de la luz dentro del cable de fibra. Sin embargo, es un fenómeno mucho menos significativo que en los medios eléctricos, lo que permite la transmisión de datos a muy largas distancias.
+Es decir que son afectadas pero en menor medida en comparacion a los medios anteriores.
 
 ---
 
@@ -115,15 +146,15 @@ Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa, para ev
 
 ## Limitaciones de Transmisión Inalámbrica de Señales Escalonadas
 
-_Investigar y resumir brevemente los motivos por los cuales no es conveniente transmitir de manera inalámbrica una señal escalonada_
+*Investigar y resumir brevemente los motivos por los cuales no es conveniente transmitir de manera inalámbrica una señal escalonada*
 
-Es por esto que existen otras tecnicas de modulacion como: _la tecnica del grafico_
+Es por esto que existen otras tecnicas de modulacion como: *la tecnica del grafico*
 
-_paint de como ser veria la señal digital modulada_
+*paint de como ser veria la señal digital modulada*
 
-_otras técnicas de modulación basadas en los mismos principios_
+*otras técnicas de modulación basadas en los mismos principios*
 
-Un termino importante en la modulacion de señales es BER _definicion + cual tecnica es mejor_ 
+Un termino importante en la modulacion de señales es BER *definicion \+ cual tecnica es mejor*
 
 ---
 
@@ -135,26 +166,26 @@ Se implementó una red simple compuesta por un router inalámbrico, una computad
 
 Los parámetros básicos configurados fueron:
 
-* Dirección IP del router: 192.168.0.1
-* Máscara de subred: 255.255.255.0
-* SSID: ...
+* Dirección IP del router: 192.168.0.1  
+* Máscara de subred: 255.255.255.0  
+* SSID: ...  
 * Seguridad: WPA2-PSK
 
-_router: en q frecuencia opera + q region del espectro corresponde + en q banda opera_
+*router: en q frecuencia opera \+ q region del espectro corresponde \+ en q banda opera*
 
 ### Configuración de PC
 
-_q hicimos_
+*q hicimos*
 
 ### Configuracion de Notebook
 
-_q hicimos_
+*q hicimos*
 
 ### Conectividad
 
-_resultados_
+*resultados*
 
-__
+\_\_
 
 ---
 
