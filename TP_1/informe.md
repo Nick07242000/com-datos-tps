@@ -9,8 +9,10 @@
 
 **Datacenter**
 
-**Universidad Nacional de Córdoba \- Facultad de Ciencias Exactas Fisicas y Naturales**  
-**Comunicaciones de Datos** **TBD** **TBD**
+**Universidad Nacional de Córdoba - Facultad de Ciencias Exactas Fisicas y Naturales**  
+**Comunicaciones de Datos** 
+**TBD** 
+**TBD**
 
 ---
 
@@ -116,23 +118,29 @@ Comunicar datos a través de cualquier medio es, en esencia, un proceso que cons
 
 En esta materia nos concentramos en la transmisión de datos, hoy por hoy, dominado por las señales digitales.
 
-En el siguiente sistema:
+El siguiente sistema:
 
-*imagen del sistema \- Github insert*
+<img width="618" height="185" alt="image" src="https://github.com/user-attachments/assets/75dcb841-6dc4-4344-9c56-ce6c460d9874" />
 
-*explicacion de tipo y modo de transmision*
+Corresponde a un modo de transmisión síncrono y paralelo simple en cuanto al canal (datos + reloj), donde la comunicación es unidireccional (del emisor hacia el receptor), y la sincronización está garantizada mediante la línea de reloj transmitida junto con la señal de datos.
 
-*justificacion del paradigma (sea o no el mejor)*
+Según su direccionalidad y características temporales, decimos que es simplex ya que la comunicacion ocurre en un solo sentido, y de transmision en derie ya que los datos se envian de forma secuencial por un mismo canal.
+
+Este paradigma no es el mas adecuado si quisieramos transmitir datos rapidamente y de forma direccional, ya que para la bidireccionalidad deberian duplicarse las lineas de comunicacion, siendo asi una comunicacion full-duplex. 
+
+Ademas, en cuanto a la velocidad de la transmision, el desfase entre la línea de datos y la línea de reloj hace que el sistema pierda sincronización conforme aumenta la tasa de bits.
 
 ### Representación UART y codificación de caracteres
 
 Teniendo en cuenta que en la expresión más simple de señal digital, podemos pensar que un nivel de tensión “1” representa un 1 digital, y un nivel de tensión “0” representa un 0 digital.
 
-Si quisieramos transmitir la cuarta letra del nombre del grupo 'a' en codificacion ASCII, la señal se veria de la forma:
+Si quisieramos transmitir la cuarta letra del nombre del grupo 'a' en codificacion ASCII (01000001), la señal se veria de la forma:
 
-*grafico UART*
+<img width="609" height="167" alt="image" src="https://github.com/user-attachments/assets/dd43c373-a2fa-4cf5-93d5-ad65b18b633d" />
 
-Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa *En qué marcas temporales medirían la señal para determinar el valor digital de la misma*
+Teniendo en cuenta los niveles de tension al pasar de 0 a 1 o viceversa, para evitar la zona de transición (pendiente), la decisión del bit debe hacerse en el instante medio de cada período de bit, no sobre los flancos. Esto puede visualizarse en el siguiente grafico:
+
+<img width="647" height="239" alt="image" src="https://github.com/user-attachments/assets/69dfb24d-4594-4b91-931f-0cac3435a433" />
 
 ---
 
@@ -193,4 +201,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Se discuten los resulta
 
 ## Referencias
 
-\[1\] ...  
+[1] ...
