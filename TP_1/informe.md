@@ -70,7 +70,7 @@ Se realiza un repaso de los siguientes conceptos teóricos:
 
 Dada la siguiente onda electromagnética:
 
-*imagen del grafico \- se inserta en Github*
+<img width="670" height="188" alt="image" src="https://github.com/user-attachments/assets/1fbde993-9f72-40c2-8fb9-8f3dc3df59e2" />
 
 *Luego de analizar el grafico podemos sacar como dato la longitud de la onda, sabiendo la constante de la velocidad de propagacion de la luz, realizamos la siguiente formula:*
 
