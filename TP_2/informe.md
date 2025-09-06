@@ -53,10 +53,18 @@ De esta manera, el presente trabajo integra fundamentos teóricos y prácticos, 
 
 ## Fenómeno físico – Figura 1
 
-Consignas:
-1) Identificar el fenómeno representado y describir sus características principales.
-2) Relacionar con las bandas de transmisión (TP1): ¿qué tipos de transmisión son más afectadas y cuáles son más resilientes?
-3) Explicar las razones por las que no debe encenderse un celular en un avión y relacionarlo con el fenómeno descrito.
+<p align="center">
+  <img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/ffd7624b-6aec-4ccf-a523-ca83a886e8bc">
+</p>
+
+a) El fenómeno físico representado por la señal transmitida desde el barco hacia el satélite es el efecto Doppler ya que el barco se va moviendo mientras sigue enviando la señal. Su posición respecto al satélite está cambiando continuamente. Esto produce que a medida que se acerque al satélite su frecuencia aumenta y disminuye la longitud de onda, mientras que cuando se aleja ocurre a la inversa: disminuye la frecuencia y aumenta la longitud de onda.
+
+b) Este fenómeno influye en todas las ondas electromagnéticas pero afecta más a las señales de alta frecuencia (ej: microondas) ya que su ecuación así lo dictamina: a mayor frecuencia portadora, mayor desplazamiento absoluto en Hz. Se puede ver con mayor claridad por ejemplo a señales de GPS, satelitales, etc que se encuentran en la parte de microondas del espectro. En las ondas de baja frecuencia (como ondas de radio) el efecto no es tan marcado si se compara con la frecuencia de la portadora.
+
+c) No se debe encender el celular en un avión principalmente para evitar interferencias electromagnéticas en los sistemas de comunicación y navegación del avión ya que los celulares emiten radiofrecuencia en bandas como GSM, 3G, 4G o 5G. Las señales de RF pueden inducir ruidos en equipos electrónicos sensibles de la aeronave, como: sistemas de navegación (ej: GPS), comunicaciones avión-torre o sensores de vuelo. 
+Sí hay una conexión indirecta: el teléfono y las torres se mueven rápidamente uno respecto al otro, generando desplazamiento Doppler de la señal.
+A frecuencias bajas (GSM ~900 MHz) el Doppler es pequeño, pero en vuelos comerciales (~900 km/h) puede afectar la sincronización de la señal y causar errores en la comunicación. 
+En resumen, considerando la velocidad del avión, la frecuencia de la señal de un celular puede desplazarse lo suficiente para complicar la recepción en las estaciones base terrestres. 
 
 ---
 
