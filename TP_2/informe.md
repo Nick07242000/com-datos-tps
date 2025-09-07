@@ -193,13 +193,18 @@ Y obtenemos la informacion sobre el fabricante:
 
 ## Discusión y conclusiones
 
-- Reflexionar sobre la privacidad de un dispositivo en la red.
-- Analizar la trazabilidad de una dirección MAC.
-- Investigar qué es el IMEI y compararlo con la MAC.
-- Responder: ¿Una VPN oculta la dirección MAC del dispositivo?
-- Conectar con los resultados obtenidos en el laboratorio y las capturas de Wireshark.
+Respecto a la privacidad de un dispositivo en la red, a través de Wireshark, observamos cómo las tramas Ethernet exponen información sensible, como direcciones MAC únicas que identifican hardware específico. Esto implica que, en una red local, cualquier entidad con acceso al tráfico (por ejemplo, un administrador de red o un atacante) puede monitorear y rastrear dispositivos sin el consentimiento del usuario. En el contexto de redes públicas, como Wi-Fi abiertas, esta exposición aumenta el riesgo de violaciones de privacidad, ya que herramientas como Wireshark permiten capturar y analizar paquetes en tiempo real. Sin embargo, medidas como el uso de encriptación (por ejemplo, WPA3 en Wi-Fi) o el spoofing de MAC (cambiar temporalmente la dirección) pueden mitigar estos riesgos, aunque no eliminan por completo la vulnerabilidad inherente a la capa de enlace. Las pruebas que realizamos, como el ping a la puerta de enlace y a otro dispositivo, demuestran cómo datos aparentemente inofensivos (como MAC de un router o una PC) pueden revelar detalles sobre el entorno del usuario, subrayando la necesidad de conciencia sobre la exposición de datos en redes.
 
----
+En cuanto a la trazabilidad de una dirección MAC, esta actúa como un identificador único asignado por el fabricante a la interfaz de red de un dispositivo, compuesto por 48 bits (por ejemplo, a8:6a:bb:dd:2a:32 en nuestras capturas). En redes locales, la MAC permite rastrear el movimiento y la actividad de un dispositivo, ya que se incluye en cada trama Ethernet. Esto facilita la trazabilidad en entornos controlados, como redes empresariales, donde se puede mapear dispositivos para gestión de seguridad. Sin embargo, su trazabilidad es limitada a nivel global: la MAC no se propaga más allá de la red local (no viaja en paquetes IP a través de internet), lo que la hace menos útil para seguimiento remoto comparado con una IP. 
+
+El IMEI (International Mobile Equipment Identity) es un número que se le asigna a cada dispositivo móvil que lo identifica de forma global en redes de telecomunicaciones. Si bien IMEI y MAC son ambos identificadores únicos que permiten rastrear los dispositivos, la diferencia está en su ámbito de aplicación: el IMEI es para redes móviles y la MAC para redes locales. Además, el IMEI es de mayor alcance, ya que es global, mientras que las MAC son locales, dentro de la red a la que está conectado el dispositivo.
+
+Una VPN (Virtual Private Network) no oculta la dirección MAC del dispositivo. Lo que hace es enmascarar la dirección IP pública del dispositivo para ocultarla, redirigiendo el tráfico a través de un servidor VPN remoto, protegiendo la privacidad del dispositivo frente a servidores externos en internet, ya que no pueden ver la IP original ni rastrear su ubicación real. Sin embargo el VPN funciona en la capa de red y la dirección MAC es un identificador de la capa de enlace de datos, utilizado para la comunicación entre dispositivos en la misma red local. Al no intervenir en la misma capa, la dirección MAC sigue siendo visible dentro de la red local a la que está conectada por cualquier otro dispositivo o router, aunque se esté utilizando una VPN. 
+
+En conclusión, en este trabajo práctico hemos profundizado en conceptos fundamentales como el efecto Doppler, las interferencias en señales, la tecnología Ethernet y los identificadores únicos como las direcciones MAC y el IMEI. Es importante destacar que todos estos elementos convergen en la esencia de las comunicaciones y la gestión de dispositivos. El efecto Doppler modula frecuencias, las interferencias afectan amplitudes, y Ethernet conecta redes, nuestras direcciones MAC e IMEI nos identifican en ese entorno interconectado digital. 
+En particular, las VPN ofrecen una capa de protección al encriptar el tráfico y ocultar la IP pública, pero no afectan la visibilidad de la MAC en redes locales, lo que resalta limitaciones en la privacidad absoluta. Aunque una VPN puede proporcionar protección en la capa de red, la dirección MAC sigue siendo un punto débil en la capa de enlace de datos dentro de una red local. La comprensión de estas diferencias y la implementación de medidas adicionales de privacidad son esenciales para una seguridad integral, mejorando la experiencia del usuario y el funcionamiento de las aplicaciones y servicios que dependen de ellas.
+En resumen, estos conceptos forman el tejido invisible que sostiene nuestra conectividad y seguridad en el mundo digital.
+
 
 ## Referencias
 
