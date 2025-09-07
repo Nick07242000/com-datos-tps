@@ -165,8 +165,21 @@ Esta es a8:6a:bb:dd:2a:32. Luego con esto investigamos informacion sobre el fabr
 
 <img width="1162" height="509" alt="image" src="https://github.com/user-attachments/assets/8b92d3cc-eba6-403b-b825-b7cb5068e79c" />
 
-e) Comunicación con otra computadora
-Repetir pasos 3 y 4 comunicándose con el dispositivo de un compañero (en la misma red o remotamente).
+e) Para comunicarnos con otra computadora, obtenemos la direccion ip local de la computadora con la que queres comunicarnos (al estar en la misma red), y enviamos un ping.
+
+<img width="455" height="200" alt="image" src="https://github.com/user-attachments/assets/35dca831-b5c2-4250-8ab0-6e4f631a2a9a" />
+
+En Wireshark capturamos un paquete:
+
+<img width="1031" height="42" alt="image" src="https://github.com/user-attachments/assets/ea8053e3-bb23-4671-b7f8-c912fbeb1022" />
+
+<img width="991" height="61" alt="image" src="https://github.com/user-attachments/assets/eb24ff9a-04ac-49a4-9c3c-f5f4cfc15167" />
+
+<img width="531" height="85" alt="image" src="https://github.com/user-attachments/assets/2a33fe27-7eb6-4386-92fa-0d1663880157" />
+
+Y obtenemos la informacion sobre el fabricante:
+
+<img width="1164" height="511" alt="image" src="https://github.com/user-attachments/assets/eadd9762-8d81-4a9f-9521-624075673423" />
 
 ---
 
