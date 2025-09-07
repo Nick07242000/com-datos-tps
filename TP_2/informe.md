@@ -107,28 +107,48 @@ Si la señal es mucho más fuerte que el ruido (SNR alta), es muy probable que l
 
 ## Análisis con Wireshark
 
-Consignas:
+a) Ethernet es una familia de tecnologías de red de área local (LAN) definidas en el estándar IEEE 802.3. Proporciona un método de acceso al medio basado en transmisión por paquetes y constituye actualmente la tecnología de red cableada más utilizada a nivel mundial.
 
-1) Ethernet
-Definición y características principales.
-Estructura de una trama Ethernet.
-Diferencias entre Ethernet, Fast Ethernet y Gigabit Ethernet.
+Sus características principales son:
+- Topología física: originalmente en bus, actualmente en estrella conmutada mediante switches.
+- Método de acceso al medio: usa CSMA/CD (Carrier Sense Multiple Access with Collision Detection) en sus versiones originales sobre medios compartidos; en redes modernas con switches dedicados, este método ha quedado prácticamente obsoleto al eliminarse las colisiones.
+- Direccionamiento: cada dispositivo tiene una dirección física única de 48 bits conocida como MAC (Media Access Control).
+- Unidad de transmisión: trabaja con tramas de datos que encapsulan la información proveniente de capas superiores.
+- Velocidades soportadas: desde 10 Mbps hasta decenas de Gbps en versiones modernas.
+- Medios físicos: pares trenzados, coaxial en versiones antiguas, y fibra óptica en implementaciones de alta velocidad.
 
-2) Cables UTP
-Definición y relación con los fenómenos del ítem 2.
-Diferencia entre cable derecho y cable cruzado.
+Una trama Ethernet típica se compone de los siguientes campos:
+- Preamble: es la secuencia para la sincronizacion del receptor.
+- Start Frame Delimiter: indica el inicio de la trama.
+- MAC destino: direccion fisica del receptor.
+- MAC origen: direccion fisica del emisor.
+- Tipo/Longitud: identifica el protocolo de la capa superior.
+- Datos: la informacion transmitida
+- Frame Check Sequence: codigo CRC para deteccion de errores
 
-3) Captura de tráfico – Gateway
-Determinar la puerta de enlace predeterminada (ipconfig/ifconfig).
-Capturar tráfico hacia la gateway con Wireshark.
-Documentar el paquete (incluyendo representación en hexadecimal).
+Podemos distinguir las siguientes iteraciones de Ethernet:
+- Ethernet (10 Mbps): Primera versión estandarizada, operaba sobre coaxial y posteriormente sobre par trenzado. Baja velocidad para estándares actuales.
+- Fast Ethernet (100 Mbps): Introduce mayor velocidad manteniendo compatibilidad con Ethernet clásico. Usa par trenzado o fibra.
+- Gigabit Ethernet (1000 Mbps): Multiplica por 10 la velocidad de Fast Ethernet, permitiendo transmisión a 1 Gbps sobre cobre y fibra óptica. Mantiene compatibilidad con estándares anteriores y se convierte en el estándar de facto en redes LAN modernas.
 
-4) Dirección MAC
+Al hablar de diferencias entre estas la velocidad de transmisión es la principal distinción. Ademas, los requisitos del medio físico son más exigentes en cada evolución pero se mantiene el formato de trama y los principios de direccionamiento, asegurando interoperabilidad entre generaciones.
+
+b) Un cable UTP (Unshielded Twisted Pair) es un medio de transmisión compuesto por pares de conductores de cobre trenzados entre sí, sin apantallamiento externo. Es el tipo de cable más utilizado en redes Ethernet modernas debido a su bajo costo, facilidad de instalación y buen rendimiento en distancias típicas de LAN (hasta 100 metros en la mayoría de sus categorías).
+
+La técnica de trenzado de los pares de conductores tiene como objetivo reducir la interferencia electromagnética (EMI) y el crosstalk (acoplamiento de señal entre pares adyacentes), donde cada par transporta una señal diferencial (la información se codifica en la diferencia de potencial entre los dos conductores).
+
+De esta forma, el trenzado alterna la posición de los conductores, haciendo que las interferencias externas afecten de forma similar a ambos hilos; como consecuencia, al restar las señales, el ruido común se cancela, por lo que el diseño del cable busca mejorar la SNR y asi reducir el BER en la transmision.
+
+Un cable de UTP derecho conecta cada pin de un extremo al mismo pin del otro, se utiliza para conectar dispositivos diferentes, mientras que un UTP cruzado intercambia las líneas de transmisión con las de recepción y se utiliza para conectar dispositivos similares sin necesidad de un hub o switch intermedio.
+
+c) 
+
+1) Dirección MAC
 Extraer la dirección MAC del dispositivo.
 Consultar el fabricante asociado a la MAC.
 Documentar el nombre y dirección de la empresa.
 
-5) Comunicación con otra computadora
+1) Comunicación con otra computadora
 Repetir pasos 3 y 4 comunicándose con el dispositivo de un compañero (en la misma red o remotamente).
 
 ---
