@@ -71,11 +71,46 @@ En resumen, considerando la velocidad del avión, la frecuencia de la señal de 
 ## Fenómeno físico – Figura 2
 
 Consignas:
-1) Identificar el fenómeno y sus características principales.
-2) Relacionar con las bandas de transmisión del TP1.
-3) Explicar qué es la SNR, y cómo se relaciona con el BER visto en el TP1.
+1) ### Identificar el fenómeno y sus características principales.
+ <p align="center">
+  <img src="https://github.com/Nick07242000/com-datos-tps/blob/main/imagen_2025-09-06_222649483.png" alt="Onda" width="700" height="300">
+</p>
 
----
+
+En la imagen se puede observar la representacion del ruido en la señal de comunicacion. Este es un fenómeno físico inevitable que ocurre cuando una señal no deseada se añade a la señal de información, distorsionándola.
+##### CARACTERISTICAS DEL RUIDO:
+  -Aleatorio: El ruido es una señal impredecible que carece de una forma de onda o patrón definido.
+  -Indeseable: A diferencia de la señal portadora, el ruido no transmite información útil y, en cambio, degrada la calidad de la señal original.
+  -Aditivo: El ruido se superpone a la señal útil durante la transmisión. La señal que llega al receptor es una suma de la señal original y la señal de ruido. En el gráfico, esto se visualiza como una onda distorsionada en el punto donde se encuentra la fuente de ruido (el trabajador con el martillo percutor).
+
+2) ### Relacionar con las bandas de transmisión del TP1.
+La transmision de señales inalambricas es la mas afectada, principalmente por contaminacion del medio lo que puede generar que se mezclen con otras fuentes de ruido y señales de radio distorsionando la señal. 
+FUENTES DE RUIDO :
+  -Ondas Electromagneticas: Ruido generado por motores electricos, electrodomesticos (microondas) y emisoras de radio frecuencias.
+  -Interferencia de señal adyacente: Varias redes inalambricas operando en el mismo espectro de frecuencia pueden interferir entre si.
+
+#### Transmisiones mas resilientes:
+La FIBRA OPTICA es la mas resiliente al ruido. A diferencia de las señales electricas o de radio estas viajan por medio de emisiones de luz.
+##### CARACTERISTICAS:
+  -Inmunidad a la EMI: Al usar luz, las señales de fibra óptica son completamente inmunes a las interferencias electromagnéticas, que son la causa principal de ruido en los medios de cobre y aire.
+  -Atenuación mínima: Aunque las señales de luz también experimentan una mínima atenuación por impurezas en el vidrio, esta pérdida es significativamente menor que la que ocurre en otros medios, lo que permite la transmisión de datos a velocidades y distancias mucho mayores sin necesidad de repetidores.
+
+Las transmisiones por CABLE COAXIAL son un punto intermedio. Son más resilientes que las inalámbricas porque el cable está físicamente blindado, lo que ayuda a proteger la señal de la EMI externa. Sin embargo, siguen siendo susceptibles al ruido si el blindaje está dañado o si la longitud del cable es excesiva, causando pérdidas de señal.
+
+3) ### Explicar qué es la SNR, y cómo se relaciona con el BER visto en el TP1.
+La SNR y la BER están directamente relacionadas. La SNR (Relación Señal-Ruido) es un concepto fundamental que explica la calidad de una señal en relación con el ruido, mientras que la BER (Tasa de Error de Bits) es una métrica que mide la consecuencia de una SNR baja en sistemas digitales.
+
+##### ¿Que es la SNR?
+La Relación Señal-Ruido (SNR) es una medida que compara la potencia de una señal deseada (información) con la potencia del ruido no deseado que la acompaña. Se expresa en decibelios (dB) y es un indicador clave de la calidad de la señal.
+  -SNR alta: Significa que la señal es mucho más potente que el ruido, lo que resulta en una transmisión más clara y confiable.
+  -SNR baja: Indica que el ruido tiene una potencia comparable a la de la señal, lo que la degrada y dificulta su correcta decodificación.
+
+##### ¿Que es la BER?
+La Tasa de Error de Bits (BER) es la proporción de bits que se han recibido con errores en una transmisión digital, en comparación con el número total de bits transmitidos. Por ejemplo, una BER de 10⁻³ significa que, en promedio, un bit de cada 1000 llega con error. Este concepto fue mencionado en el TP1.
+
+##### SNR - BER
+Si la señal es mucho más fuerte que el ruido (SNR alta), es muy probable que los bits se reciban correctamente, resultando en una baja tasa de errores. Por el contrario, si la señal está contaminada por un ruido fuerte (SNR baja), el receptor tendrá dificultades para diferenciar los bits "1" de los bits "0", lo que aumentará la tasa de errores. Entonces podemos decir que a mayor SNR, menor será la BER.
+
 
 ## Análisis con Wireshark
 
