@@ -141,14 +141,31 @@ De esta forma, el trenzado alterna la posición de los conductores, haciendo que
 
 Un cable de UTP derecho conecta cada pin de un extremo al mismo pin del otro, se utiliza para conectar dispositivos diferentes, mientras que un UTP cruzado intercambia las líneas de transmisión con las de recepción y se utiliza para conectar dispositivos similares sin necesidad de un hub o switch intermedio.
 
-c) 
+c) Para capturar un paquete con Wireshark, comenzamos realizando ipconfig para obtener la puerta de enlace predeterminada:
 
-1) Dirección MAC
-Extraer la dirección MAC del dispositivo.
-Consultar el fabricante asociado a la MAC.
-Documentar el nombre y dirección de la empresa.
+<img width="545" height="329" alt="image" src="https://github.com/user-attachments/assets/20324e87-93c4-45ca-a223-61f384db936f" />
 
-1) Comunicación con otra computadora
+Con esto ejecutamos un ping hacia la puerta de enlace:
+
+<img width="454" height="200" alt="image" src="https://github.com/user-attachments/assets/f57df022-2356-44d9-86fb-acb0df8dafbb" />
+
+Y capturamos el siguiente paquete:
+
+<img width="1027" height="38" alt="image" src="https://github.com/user-attachments/assets/cfe9b6f6-7640-4c52-98a9-02276a835311" />
+
+<img width="994" height="63" alt="image" src="https://github.com/user-attachments/assets/03a7eabd-70bb-4adf-96ac-f7d5555d6f77" />
+
+<img width="535" height="84" alt="image" src="https://github.com/user-attachments/assets/a7b1b8ff-809e-4a08-b5c2-8124df118c39" />
+
+d) Para obtener la direccion MAC, nos fijamos en los primeros 6 bytes del paquete, donde se encuentra la direccion MAC del destino:
+
+<img width="774" height="77" alt="image" src="https://github.com/user-attachments/assets/99e81af1-df12-43f2-aad1-a3966d7ef5ff" />
+
+Esta es a8:6a:bb:dd:2a:32. Luego con esto investigamos informacion sobre el fabricante:
+
+<img width="1162" height="509" alt="image" src="https://github.com/user-attachments/assets/8b92d3cc-eba6-403b-b825-b7cb5068e79c" />
+
+e) Comunicación con otra computadora
 Repetir pasos 3 y 4 comunicándose con el dispositivo de un compañero (en la misma red o remotamente).
 
 ---
