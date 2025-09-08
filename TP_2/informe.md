@@ -49,9 +49,15 @@ De esta manera, el presente trabajo integra fundamentos teóricos y prácticos, 
 
 ---
 
-# Marco teórico / Modelo / Metodología
+## Marco Teorico
 
-## Fenómeno físico – Figura 1
+La capa física constituye el nivel más bajo del modelo OSI y se encarga de la transmisión real de bits a través del medio de comunicación, definiendo aspectos como voltajes, frecuencias, modulaciones, conectores y medios físicos (cobre, fibra óptica, radiofrecuencia). Sobre ella se apoya la capa de enlace de datos, cuyo rol es garantizar la entrega confiable de tramas entre nodos directamente conectados, gestionando direcciones físicas (MAC), detección de errores y control de acceso al medio, a través de protocolos como Ethernet o Wi-Fi. Para el estudio y análisis de estas capas resulta fundamental el uso de herramientas de captura de tráfico como Wireshark, un analizador de protocolos que permite observar en tiempo real los paquetes que circulan por una red, inspeccionar su estructura en distintos niveles del modelo OSI, y relacionar fenómenos de la capa física con su representación en tramas de la capa de enlace, constituyendo un recurso esencial para la comprensión y el diagnóstico de sistemas de comunicación digital.
+
+---
+
+## Resultados
+
+### Fenómeno físico – Figura 1
 
 <p align="center">
   <img width="700" height="300" alt="image" src="https://github.com/user-attachments/assets/ffd7624b-6aec-4ccf-a523-ca83a886e8bc">
@@ -68,7 +74,7 @@ En resumen, considerando la velocidad del avión, la frecuencia de la señal de 
 
 ---
 
-## Fenómeno físico – Figura 2
+### Fenómeno físico – Figura 2
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/93089115-30bd-4444-a79b-6ba4d1038f4c" alt="Onda" width="700" height="300">
@@ -105,7 +111,7 @@ Si la señal es mucho más fuerte que el ruido (SNR alta), es muy probable que l
 
 ---
 
-## Análisis con Wireshark
+### Análisis con Wireshark
 
 a) Ethernet es una familia de tecnologías de red de área local (LAN) definidas en el estándar IEEE 802.3. Proporciona un método de acceso al medio basado en transmisión por paquetes y constituye actualmente la tecnología de red cableada más utilizada a nivel mundial.
 
@@ -183,14 +189,6 @@ Y obtenemos la informacion sobre el fabricante:
 
 ---
 
-## Resultados
-
-- Presentar los paquetes capturados en Wireshark.
-- Incluir extractos en hexadecimal.
-- Tablas de direcciones IP y MAC observadas.
-- Identificación de fabricantes.
-- Análisis de diferencias entre transmisión local y remota.
-
 ## Discusión y conclusiones
 
 Respecto a la privacidad de un dispositivo en la red, a través de Wireshark, observamos cómo las tramas Ethernet exponen información sensible, como direcciones MAC únicas que identifican hardware específico. Esto implica que, en una red local, cualquier entidad con acceso al tráfico (por ejemplo, un administrador de red o un atacante) puede monitorear y rastrear dispositivos sin el consentimiento del usuario. En el contexto de redes públicas, como Wi-Fi abiertas, esta exposición aumenta el riesgo de violaciones de privacidad, ya que herramientas como Wireshark permiten capturar y analizar paquetes en tiempo real. Sin embargo, medidas como el uso de encriptación (por ejemplo, WPA3 en Wi-Fi) o el spoofing de MAC (cambiar temporalmente la dirección) pueden mitigar estos riesgos, aunque no eliminan por completo la vulnerabilidad inherente a la capa de enlace. Las pruebas que realizamos, como el ping a la puerta de enlace y a otro dispositivo, demuestran cómo datos aparentemente inofensivos (como MAC de un router o una PC) pueden revelar detalles sobre el entorno del usuario, subrayando la necesidad de conciencia sobre la exposición de datos en redes.
@@ -205,6 +203,7 @@ En conclusión, en este trabajo práctico hemos profundizado en conceptos fundam
 En particular, las VPN ofrecen una capa de protección al encriptar el tráfico y ocultar la IP pública, pero no afectan la visibilidad de la MAC en redes locales, lo que resalta limitaciones en la privacidad absoluta. Aunque una VPN puede proporcionar protección en la capa de red, la dirección MAC sigue siendo un punto débil en la capa de enlace de datos dentro de una red local. La comprensión de estas diferencias y la implementación de medidas adicionales de privacidad son esenciales para una seguridad integral, mejorando la experiencia del usuario y el funcionamiento de las aplicaciones y servicios que dependen de ellas.
 En resumen, estos conceptos forman el tejido invisible que sostiene nuestra conectividad y seguridad en el mundo digital.
 
+---
 
 ## Referencias
 
