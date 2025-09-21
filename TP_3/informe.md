@@ -73,8 +73,41 @@ Respuestas punto 1
 
 ### Fibra Optica
 
-Respuestas punto 2
+2) Observar la siguiente Figura representando transmisiones en Fibra Óptica:
+  <img src="https://github.com/user-attachments/assets " alt="Onda" width="700" height="300"> 
 
+  a) ¿Qué tipos de transmisión se están ilustrando? ¿Cuáles son sus características principales y en qué
+se diferencian una de otra? 
+
+  La imagen presenta la propagación de la luz a través de una fibra óptica del tipo de transmision, fibra monomodo (izquierda) y fibra multimodo (derecha).
+  La imagen de la izquierda muestra un haz de luz viajando directamente a través del centro del núcleo de la fibra. Esto es típico de la fibra monomodo, que se utiliza para largas distancias y altas velocidades, ya que no hay dispersión de la señal.
+  La imagen de la derecha muestra la luz rebotando repetidamente en las paredes internas de la fibra a medida que avanza. Esto es característico de la fibra multimodo, que se usa para distancias más cortas. Los diferentes rayos de luz (o "modos") viajan por caminos distintos y llegan al final en momentos ligeramente diferentes, lo que provoca una dispersión modal que limita su distancia y velocidad.
+
+  ¿Cuál es más costosa de implementar?
+  La fibra multimodo es generalmente más costosa de implementar que la monomodo, debido principalmente al alto precio de los transceptores (equipos de envío y recepción) que requiere. La fibra monomodo es más económica para largas distancias y ofrece un mejor rendimiento.
+
+  b) ¿Qué es la Ley de Snell? ¿Cómo se relaciona con las transmisiones en Fibra Óptica y sus distintos
+  modos?
+  La ley de Snell establece una relación matemática entre los ángulos de incidencia y refracción de un rayo de luz. Se expresa con la fórmula:
+    n1*sin(θ1) = n2 * sin(θ2)
+
+  n1 es el índice de refracción del primer medio (donde la luz incide).
+  θ1 es el ángulo de incidencia.
+  n2 es el índice de refracción del segundo medio (donde la luz se refracta).
+  θ2 es el ángulo de refracción.
+
+  Cuando un rayo de luz pasa de un medio más denso (n1 alto) a uno menos denso (n2 bajo), se aleja de la normal (la línea perpendicular a la superficie de separación). Si el ángulo de incidencia es lo suficientemente grande, el rayo de luz no se refracta sino que se refleja completamente de vuelta al primer medio. Este fenómeno se conoce como reflexión interna total, y es el principio clave que hace que la fibra óptica funcione.
+
+  En una fibra óptica, el núcleo (core) tiene un índice de refracción más alto (n1) que el revestimiento (cladding) que lo rodea (n2). La Ley de Snell explica cómo la luz que entra en el núcleo en un ángulo adecuado se refleja repetidamente en la interfaz entre el núcleo y el revestimiento, permitiendo que la señal viaje a lo largo de la fibra sin escaparse.
+  En la Fibra Multimodo, con un núcleo de gran diámetro, permite que la luz viaje por múltiples caminos o "modos". La Ley de Snell predice que los rayos que entran con diferentes ángulos de incidencia seguirán trayectorias de distinta longitud. Esto genera dispersión modal, lo que limita la distancia y el ancho de banda.
+
+  En la Fibra Monomodo, al tener un núcleo de diámetro muy pequeño, solo permite la propagación de un único modo de luz. Esto elimina la dispersión modal, lo que hace que sea ideal para transmisiones de larga distancia y de alta velocidad.
+
+  c) ¿Qué relación podés encontrar entre las conexiones inalámbricas y las transmisiones en Fibra
+  Óptica?
+    
+  La fibra óptica transporta grandes volúmenes de datos a altas velocidades a través de largas distancias. Conecta ciudades, países, centros de datos y puntos de acceso Wi-Fi. Su alta capacidad y baja latencia son fundamentales para soportar el tráfico generado por miles de usuarios.
+  Las conexiones inalámbricas son la interfaz que permite a los dispositivos de los usuarios (smartphones, laptops, tablets) acceder a la red. El tráfico de datos de estos dispositivos viaja a través del aire hasta un punto de acceso (por ejemplo, un router Wi-Fi o una antena 5G), que a su vez está conectado a la red troncal de fibra óptica.
 ---
 
 ### Protocolos
