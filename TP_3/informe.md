@@ -74,7 +74,7 @@ Respuestas punto 1
 ### Fibra Optica
 
 2) Observar la siguiente Figura representando transmisiones en Fibra Óptica:
-  <img src="https://github.com/user-attachments/assets " alt="Onda" width="700" height="300"> 
+<img width="673" height="140" alt="image" src="https://github.com/user-attachments/assets/a15a0282-ce8f-401e-a1de-ec1401d85022" />
 
   a) ¿Qué tipos de transmisión se están ilustrando? ¿Cuáles son sus características principales y en qué
 se diferencian una de otra? 
