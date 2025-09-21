@@ -118,7 +118,8 @@ Una vez identificados los estándares o la documentación correspondiente a cada
 | SigFox     | 20 [km]   | 1000 [bps]                        |
 | 5G         | 500 [m]   | 20 [Gbps]                         |
 
-Gráfico de las características de alcance (distancia) y data rate de los protocolos mencionados.
+Gráfico de las características de alcance (distancia) y data rate de los protocolos mencionados:
+<img width="1056" height="707" alt="Image" src="https://github.com/user-attachments/assets/bb7ff192-6b5c-477f-bc13-33e9440f0797" />
 
 -----------------------------------
 
