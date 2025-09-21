@@ -35,7 +35,7 @@ Asimismo, se introducen conceptos de transmisión óptica en fibra, destacando l
 
 Se investigan también los principales protocolos de comunicación inalámbrica utilizados en la actualidad, con especial atención a su alcance, tasa de datos y aplicaciones en el ecosistema IoT. 
 
-Finalmente, se aborda el estado del arte en conectividad aérea, explorando las tecnologías que permiten acceso a Internet en vuelo y sus limitaciones.
+Finalmente, se aborda el estado del arte en conectividad aérea, explorando las tecnologías que permiten acceso a internet en vuelo y sus limitaciones.
 
 **Palabras clave:** *IEEE 802.3, IEEE 802.11, Wi-Fi, fibra óptica, protocolos inalámbricos, IoT, comunicaciones en vuelo*
 
@@ -49,7 +49,7 @@ En este marco, los organismos de normalización como el IEEE han definido protoc
 
 Este trabajo práctico se enmarca en ese objetivo: profundizar en los fundamentos de la capa de acceso a la red mediante el estudio de los estándares IEEE 802.3 (Ethernet) y 802.11 (Wi-Fi), y la exploración de medios de transmisión como la fibra óptica y diversas tecnologías inalámbricas. 
 
-Asimismo, se busca relacionar los fenómenos físicos de propagación con las decisiones de diseño de red, y analizar el rol de los protocolos en escenarios de aplicación actuales y emergentes, como el Internet de las Cosas (IoT) y la conectividad en entornos de alta complejidad, por ejemplo, el acceso a Internet en vuelos comerciales.
+Asimismo, se busca relacionar los fenómenos físicos de propagación con las decisiones de diseño de red, y analizar el rol de los protocolos en escenarios de aplicación actuales y emergentes, como el internet de las Cosas (IoT) y la conectividad en entornos de alta complejidad, por ejemplo, el acceso a internet en vuelos comerciales.
 
 ---
 
@@ -137,9 +137,50 @@ En cuanto a la inmunidad frente a interferencias electromagnéticas (EMI) y de r
 
 
 -----------------------------------
-### Estado del Arte
 
-Respuestas punto 4
+---
+
+### Conectividad en Aeronaves
+
+#### Estado del Arte
+
+El estado del arte es una revisión actualizada y sistemática de los conocimientos, desarrollos y avances más recientes sobre un tema específico. Su objetivo es mostrar qué se sabe hasta el momento, qué tecnologías o métodos existen, qué limitaciones tienen y qué tendencias futuras se están explorando.
+
+En otras palabras, el estado del arte es “la foto actual del conocimiento y la tecnología en un área”, y se usa para fundamentar un trabajo mostrando que se conocen los avances recientes y qué lugar ocupa nuestra investigación o práctica dentro de ese panorama.
+
+#### Tecnologias Principales
+
+En el contexto de la conectividad a internet en aeronaves, existen actualmente dos enfoques tecnológicos principales: los sistemas satelitales y los sistemas air-to-ground (ATG).
+
+En los sistemas satelitales, se emplean satélites geoestacionarios (GEO) y, más recientemente, constelaciones de satélites de órbita baja (LEO). Los GEO ofrecen amplia cobertura global, aunque presentan altas latencias debido a la distancia de 36.000 km. Por su parte, los LEO (como la red Starlink de SpaceX) prometen menores retardos y mayores anchos de banda, aunque requieren una infraestructura más compleja y en expansión.
+
+Los sistemas ATG, por otro lado, se basan en antenas terrestres que transmiten hacia la aeronave mientras esta se encuentra en vuelo sobre tierra firme. Esta solución presenta baja latencia y costos reducidos, pero limita su funcionamiento a zonas continentales, quedando inoperativa en vuelos transoceánicos.
+
+En cuanto a protocolos y estándares, la conectividad aérea se apoya en variantes optimizadas de TCP/IP y en mecanismos de gestión de calidad de servicio (QoS), con el fin de priorizar aplicaciones críticas y minimizar el impacto del retardo en servicios sensibles como videollamadas.
+
+Actualmente, la tendencia se orienta a la integración de redes híbridas que combinan satélites LEO con enlaces ATG, buscando un equilibrio entre cobertura global, capacidad y latencia reducida. Diversos estudios proyectan que, hacia el final de la década, la disponibilidad de internet en vuelo será comparable en calidad a la de redes terrestres de banda ancha.
+
+#### Publicacion Cientifica
+
+Una publicacion cientifica reciente sobre esta tecnologia es [Enabling Continuous 5G Connectivity in Aircraft through Low Earth Orbit Satellites](https://arxiv.org/abs/2504.07262), el cual habla sobre estrategias de despliegue de satélites LEO para permitir conectividad 5G continua en aeronaves, considerando movimiento del avión, tránsito entre satélites, y análisis de señal dentro de la cabina mediante ray-tracing.
+
+#### Division de Trafico
+
+En los aviones modernos que ofrecen Wi-Fi a bordo, coexisten dos tipos de tráfico principales:
+
+- Tráfico hacia Internet (pago):
+  - Incluye navegación web, mensajería, correo electrónico, videollamadas, etc.
+  - Este tráfico viaja desde el dispositivo del pasajero hacia el servidor de acceso a internet a bordo, y desde allí se envía al exterior por un enlace satelital (GEO o LEO) o air-to-ground.
+  - Tiene costos asociados (ancho de banda satelital es limitado y caro), por eso suele estar tarifado para los usuarios.
+
+- Tráfico Local (gratuito, hosteado en el avión):
+  - Corresponde al sistema de entretenimiento a bordo (IFE – In-Flight Entertainment): películas, música, series, mapas interactivos, etc.
+  - Este contenido está almacenado en servidores locales dentro del avión, usualmente un servidor multimedia conectado a la red interna (LAN).
+  - El acceso no pasa por el satélite ni consume ancho de banda externo. Funciona similar a un servidor de streaming en una red local: el dispositivo del pasajero se conecta al servidor del avión y recibe el contenido por Wi-Fi local.
+
+En resumen, ver una película en el sistema de entretenimiento es tráfico intra-red local, y enviar un correo es tráfico extra-red que debe salir del avión, pasando por el enlace satelital/ATG, consumiendo recursos de internet.
+
+En Packet Tracer podriamos simular esto mediante un servidor local (representando el sistema de entretenimiento a bordo), configurar PCs representado los pasajeros al router Wi-Fi del avion, y configurar un router hacie internet (representando el enlace satelital). Asi dividimos el trafico, si los clientes acceden a una IP privada local, reciben contenido gratuito, y si acceden a una IP publica el trafico debe salir hacia internet y es tarifado.
 
 ---
 
