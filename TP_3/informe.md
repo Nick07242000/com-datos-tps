@@ -93,7 +93,7 @@ Aún así se le da libertad al administrador para que decida qué seguridad impl
 
 <img width="947" height="651" alt="image" src="https://github.com/user-attachments/assets/3c7b36d9-7ad9-4b8c-8b0a-3fc7436f7e38" />
 
-d. 
+e. 
 
 | Característica      | Wi-Fi 5              | Wi-Fi 6                  | Wi-Fi 7                    |
 |---------------------|----------------------|--------------------------|-----------------------------|
