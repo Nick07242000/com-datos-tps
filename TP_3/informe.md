@@ -67,7 +67,42 @@ En cuanto a los protocolos inalámbricos, el ecosistema actual es diverso: adem�
 
 ### Estandares
 
-Respuestas punto 1
+a. Estandares IEEE:
+
+- 802.3: surgió en 1983 basándose en Ethernet (1973).
+Este es un estándar de redes (cableadas) de área local que define las características de cableado y señalización; de nivel físico y los formatos de tramas de datos del nivel de enlace de datos del modelo OSI. 
+Su primera implementación alcanzó una velocidad de  10 Mbits/s sobre coaxial grueso. Su evolución logró llegar a 100-200 Gb/s en 2018 con su versión 802.3cd. No solo lograron aumentar la velocidad sino extenderse a usar como medio también fibra óptica. 
+
+- 802.11: estándares de conectividad inalámbrica. El WiFi se basa en él. Es una tecnología de red de área local inalámbrica (WLAN) que permite que los dispositivos digitales dentro de un área determinada se comuniquen mediante ondas de radio. 
+Se lanzó al mercado en 1997. Permitía la transmisión inalámbrica de datos a velocidades de hasta 2 Mbit/s utilizando un espectro radioeléctrico de 2,4 GHz sin licencia.
+Su versión más reciente (2021) llamada WiFi 6 llega a una velocidad teórica de 9,6Gbit/s.
+
+b. La red Fcefyn tiene una versión del estándar 802.11ac (WiFi 5). Esto se puede ver al conectarse a ella e ingresar el comando netsh wlan show interfaces (en powershell Windows). Esto nos aporta mucha información de esta red.
+
+<img width="963" height="811" alt="image" src="https://github.com/user-attachments/assets/b72623c8-6b78-404b-9cd9-f4391a0f1943" />
+
+Esto también se podría ver con Wireshark y esta opción es más robusta ya que captura y decodifica las tramas de Beacon tramas de gestión en Wi-Fi que envía el AP periódicamente con información de la red y estándares soportados) y de asociación (tramas de gestión que se generan cuando un cliente se conecta a un AP y se usa para establecer.
+
+c. Depende del protocolo. Si el AP utiliza un estándar nuevo y la NIC del dispositivo no lo soporta, la conexión no se puede establecer. En cambio, si el AP ofrece retrocompatibilidad, la NIC sí podrá conectarse, aunque la velocidad y las funciones estarán limitadas a las de la versión más antigua que ambos soporten.
+
+
+d. El protocolo da la velocidad pero no determina directamente la seguridad, sino que condiciona qué seguridad puede usarse.
+
+802.11ac: normalmente viene configurado solo con WPA2 o WPA3. A medida que avanza la versión del protocolo, se eleva el estándar mínimo de seguridad permitido.
+Aún así se le da libertad al administrador para que decida qué seguridad implementar y en este caso se decidió por “Ninguna”. En la versión anterior (WiFi 4) usaba principalmente WPA2-PSK pero todavía permitía WPA/TKIP y WEP por compatibilidad.
+
+<img width="947" height="651" alt="image" src="https://github.com/user-attachments/assets/3c7b36d9-7ad9-4b8c-8b0a-3fc7436f7e38" />
+
+d. 
+
+| Característica      | Wi-Fi 5              | Wi-Fi 6                  | Wi-Fi 7                    |
+|---------------------|----------------------|--------------------------|-----------------------------|
+| Versión IEEE        | 802.11ac             | 802.11ax                 | 802.11be                   |
+| Tasa de datos máx.  | ~6.9 Gbps            | ~9.6 Gbps                | ~46 Gbps                   |
+| Banda(s)            | 5 GHz                | 2.4 GHz y 5 GHz          | 2.4, 5 y 6 GHz             |
+| Ancho de Banda      | Hasta 160 MHz        | Hasta 160 MHz            | Hasta 320 MHz              |
+| Modulación          | 256-QAM              | 1024-QAM                 | 4096-QAM                   |
+| Sistema de Seguridad| WPA2 (AES) o WPA3    | WPA3                     | WPA3 (base), WPA4 futuro   |
 
 ---
 
