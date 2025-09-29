@@ -253,6 +253,16 @@ En Packet Tracer podriamos simular esto mediante un servidor local (representand
 
 ## Discusión y conclusiones
 
+El desarrollo del presente trabajo permitió integrar conceptos teóricos de la capa de acceso a la red con observaciones prácticas y el análisis de tecnologías actuales. El estudio de los estándares IEEE 802.3 (Ethernet) y IEEE 802.11 (Wi-Fi) mostró cómo la evolución de estos protocolos ha acompañado el incremento exponencial de las necesidades de transmisión de datos, tanto en redes cableadas como inalámbricas. Se destacó la importancia de la retrocompatibilidad para garantizar la interoperabilidad entre dispositivos, así como la relación entre la versión del estándar y los mecanismos de seguridad disponibles.
+
+En cuanto a los medios de transmisión, la comparación entre fibra óptica monomodo y multimodo permitió comprender la relevancia de fenómenos físicos como la refracción interna total y la dispersión modal. Se concluye que, aunque la fibra multimodo es más simple para cortas distancias, la fibra monomodo constituye la opción más eficiente y escalable para enlaces de gran capacidad y alcance. La complementariedad entre redes ópticas y tecnologías inalámbricas refuerza la idea de que las telecomunicaciones modernas se sostienen en arquitecturas híbridas donde cada medio cumple un rol específico.
+
+Respecto a los protocolos inalámbricos, el análisis comparativo demostró que no existe una solución única, sino un ecosistema diversificado que responde a distintos requerimientos: baja latencia y alta capacidad (Wi-Fi 7, 5G), bajo consumo (ZigBee, LoRa, NB-IoT), o cobertura global (satélites). Esta diversidad es particularmente visible en el ámbito del IoT, donde la elección del protocolo depende del balance entre alcance, tasa de datos y eficiencia energética.
+
+Finalmente, el estado del arte sobre conectividad en aeronaves evidenció cómo la combinación de sistemas satelitales y enlaces air-to-ground está transformando la experiencia de los pasajeros. La diferenciación entre tráfico local (entretenimiento a bordo) e Internet (servicios externos) constituye un ejemplo concreto de la segmentación de servicios en redes complejas, con implicancias técnicas, económicas y de calidad de servicio. Los avances recientes en constelaciones LEO y su integración con 5G marcan una tendencia hacia redes aéreas con prestaciones comparables a las terrestres.
+
+En conclusión, este trabajo permitió afianzar los fundamentos de la capa de acceso y ponerlos en perspectiva con tecnologías vigentes y emergentes. La comprensión de los fenómenos físicos, la evolución de los estándares y la diversidad de protocolos constituye una base sólida para abordar los desafíos de diseño, compatibilidad y seguridad en redes modernas, desde entornos locales hasta escenarios de alta complejidad como la conectividad global en aeronaves.
+
 ---
 
 ## Referencias
