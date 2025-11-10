@@ -75,10 +75,98 @@ Las Access Control Lists (ACLs) son conjuntos de reglas aplicadas a las interfac
 
 ## Resultados
 
-### Alcance de Redes y Virtualización
+### 1) Alcance de Redes y Virtualización
 
-...
 
+### a) Clasificacion de las redes según su cobertura geografica:
+
+| Tipo de Red                       | Acrónimo | Alcance típico        | Características principales                                               | Tecnologías / Ejemplos                                     |
+|----------------------------------|:--------:|------------------------|---------------------------------------------------------------------------|------------------------------------------------------------|
+| Red de Área Personal             | **PAN**  | Hasta ~10 m            | Conecta dispositivos personales cercanos; bajo consumo y fácil conexión. | Bluetooth, NFC; celular + auriculares inalámbricos         |
+| Red de Área Local                | **LAN**  | Hasta ~1 km            | Alta velocidad; usada en edificios, aulas u oficinas.                     | Ethernet, Wi-Fi; red de computadoras de un aula            |
+| Red de Campus                    | **CAN**  | Hasta ~10 km           | Interconecta varias LAN dentro de un campus o empresa.                    | Fibra óptica; red de todos los edificios de una universidad |
+| Red de Área Metropolitana        | **MAN**  | 10–50 km               | Conecta múltiples redes dentro de una ciudad.                             | Enlaces metropolitanos, MPLS; sedes municipales conectadas  |
+| Red de Área Amplia               | **WAN**  | > 100 km (global)      | Interconecta redes a nivel nacional o internacional.                      | Internet, VPNs, fibra submarina, satélite                  |
+| Red de Área Local Inalámbrica    | **WLAN** | Hasta ~100 m           | Variante inalámbrica de la LAN; ofrece movilidad.                         | Wi-Fi (IEEE 802.11); Wi-Fi doméstico                        |
+| Red de Área Amplia Inalámbrica   | **WWAN** | 1–1000 km o más        | Cobertura amplia mediante redes celulares o satelitales.                  | 4G, 5G, Starlink, NB-IoT                                   |
+| Red de Almacenamiento            | **SAN**  | Limitada al data center| Red dedicada exclusivamente al intercambio de datos de almacenamiento.    | Fibre Channel, iSCSI; Centros de datos empresariales        |
+
+
+### b) VLAN (Virtual Local Area Network)
+Una VLAN es una red lógica que permite dividir una red física (como la de un switch) en múltiples redes virtuales independientes, sin necesidad de modificar el cableado ni la infraestructura. Cada VLAN forma un dominio de broadcast propio, por lo que los dispositivos dentro de una misma VLAN pueden comunicarse entre sí, pero no con los de otras VLAN a menos que exista un router o switch de capa 3 que realice inter-VLAN routing.
+
+### Ventajas:
+| Ventaja          | Descripción                                                                 |
+|------------------|-----------------------------------------------------------------------------|
+| Seguridad         | Aísla el tráfico entre grupos, evitando accesos no autorizados.            |
+| Flexibilidad      | Permite reasignar usuarios sin modificar cableado físico.                  |
+| Mejor rendimiento | Reduce el tamaño del dominio de broadcast, disminuyendo tráfico excesivo. |
+| Escalabilidad     | Facilita la expansión y reorganización de la red.                          |
+
+### Clasificacion:
+| Tipo de VLAN                | Descripción                                                                 |
+|-----------------------------|-----------------------------------------------------------------------------|
+| Port-based VLAN             | Cada puerto del switch se asigna manualmente a una VLAN.                    |
+| MAC-based VLAN              | Se asigna la VLAN según la dirección MAC del dispositivo.                   |
+| Protocol-based VLAN         | Clasifica el tráfico según el protocolo utilizado (IP, IPX, AppleTalk).     |
+| Network-based VLAN (IP)     | Determina la VLAN en función de la subred IP del dispositivo.               |
+
+### VLANs especiales:
+| VLAN              | Función                                                                               |
+|------------------|---------------------------------------------------------------------------------------|
+| VLAN 1            | VLAN por defecto, usada inicialmente para administración básica y control del switch. |
+| VLAN nativa       | Transporta tramas sin etiqueta (untagged) en enlaces trunk.                           |
+| VLAN de gestión   | VLAN dedicada a la administración de dispositivos de red (ejemplo: VLAN 99).         |
+
+---------------------------
+### c) Protocolo IEEE 802.1Q y su relación con las VLAN
+
+
+**IEEE 802.1Q** es el estándar que define cómo se identifican y transportan **VLANs** a través de redes Ethernet. Permite que varias redes lógicas compartan la misma infraestructura física sin perder el aislamiento entre ellas.
+
+En lugar de tener un cable o switch por cada red, 802.1Q  etiqueta las tramas Ethernet para indicar a qué VLAN pertenecen, haciendo posible que un solo enlace físico (enlace **trunk**) transporte tráfico de múltiples VLANs.
+
+
+### ¿Cómo se relaciona con las VLAN?
+
+Gracias a 802.1Q se puede:
+
+- **Permitir comunicación entre VLANs** usando un router o switch capa 3.
+- **Transportar múltiples VLANs** por un solo enlace físico (modo trunk).
+- **Identificar** a qué VLAN pertenece cada trama.
+- **Mantener separado el tráfico** entre distintas VLANs, aunque compartan el mismo cable o switch.
+
+
+Sin este estándar, las VLAN solo funcionarían dentro de un mismo switch.
+
+---
+### d)  ¿Qué es el Tagging?
+
+**Tagging** es el proceso mediante el cual un switch **inserta una etiqueta (tag) 802.1Q** en una trama Ethernet para indicar **a qué VLAN pertenece**.  
+Este mecanismo permite que **múltiples VLANs compartan un mismo enlace físico** sin perder el aislamiento lógico del tráfico.
+
+Sin el tagging, todas las tramas que viajan entre switches serían indistinguibles y no sería posible mantener separadas las VLANs en enlaces troncales.
+
+
+**¿Cómo funciona?**
+
+1. Una trama llega al switch por un **puerto de acceso**, asociado a una VLAN.
+2. Si la trama debe ser enviada a otro switch mediante un **enlace trunk**, el switch **agrega una etiqueta 802.1Q** con el **VLAN ID (VID)**.
+3. La trama viaja por el enlace trunk con esa etiqueta.
+4. El switch receptor **lee la etiqueta**, identifica la VLAN y reenvía la trama solo a los puertos correspondientes.
+5. Si el puerto destino es de acceso, **se elimina la etiqueta (untagging)** antes de entregar la trama al dispositivo final.
+
+
+
+***Tipos de puertos involucrados***
+
+| Tipo de puerto | Tramas etiquetadas | Función principal | Ejemplo de uso |
+|----------------|:-----------------:|------------------|----------------|
+| **Access Port** | No (tramas van sin tag) | Conecta dispositivos finales a una sola VLAN. | PC, impresora, cámara IP. |
+| **Trunk Port** | Sí (tramas llevan tag 802.1Q) | Transporta tráfico de múltiples VLANs entre equipos de red. | Conexión entre switches o switch-router. |
+
+
+---
 ### Topologia Packet Tracer
 
 Se implementa la siguiente topología de red en packet tracer:
