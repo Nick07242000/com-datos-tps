@@ -81,6 +81,175 @@ Las Access Control Lists (ACLs) son conjuntos de reglas aplicadas a las interfac
 
 ### Topologia Packet Tracer
 
+Se implementa la siguiente topología de red en packet tracer:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/a5a8a3e3-96fd-462c-a6c9-33c210329beb" />
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/f50f3b95-5e31-489c-b783-66f81533caca" />
+
+Con la siguiente tabla de ruteo:
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/0c678316-76fc-42c8-ae11-e4442e87ae5c" />
+
+a) En cada computadora se ingresa a la terminal y se cambian los nombres de los switches a SW-1 y SW-2 respectivamente desde la configuración global por medio de los siguientes comandos:
+
+```
+Switch>enable
+Switch#configure terminal
+Switch(config)#hostname SW-1
+```
+
+b) Se asignan contraseñas para cada modo en cada uno de los switches:
+
+Para EXEC User desde config-line:
+```
+SW-1(config)#line console 0
+SW-1(config-line)#password contrasena_consola
+SW-1(config-line)#login
+SW-1(config-line)#exit
+```
+
+Nota: login es usado para habilitar el acceso
+
+Para EXEC Privilegiado: 
+```
+SW-1(config)#enable secret contrasena_exec
+```
+Para acceso remoto (Telnet o SSH):
+```
+SW-1(config)#line vty 0 15
+SW-1(config-line)#password contrasena_vty
+SW-1(config-line)#login
+```
+
+c) Para el siguiente paso se encriptan las contraseñas (que no lo están ya) con un cifrado débil pero solo en el archivo de configuración, no mientras se envían por los medios. Se utiliza el siguiente comando desde la config global:
+
+```
+SW-1(config)#service password-encryption
+```
+
+Y se puede verificar que funcionó al ir a exec privilegiado e ingresar el siguiente comando:
+```
+SW-1#show running-config
+```
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/87789924-17e7-49da-8aa0-8ff7c4fb10a2" />
+
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/1c2cd3c4-1469-435c-a8ec-4899f1911fec" />
+
+d) Una vez que se tienen todos los accesos protegidos con contraseñas, se prosigue a configurar las direcciones con la tabla de ruteo antes provista. Para esto se configuran las redes VLAN para ambos switch:
+
+```
+SW-1(config)#interface vlan 1
+SW-1(config-if)#ip address 192.168.10.11 255.255.255.0
+SW-1(config-if)#no shutdown
+SW-1(config-if)#
+
+%LINK-5-CHANGED: Interface Vlan1, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to up
+
+SW-1(config-if)#exit
+```
+
+Nota: no shutdown habilita la interfaz virtual.
+
+Con ```show ip interface brief``` se puede ver las interfaces que están conectadas:
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/cfeb29c1-7b95-4680-93b0-15d3977d4114" />
+
+e) En este caso hay 3 UP y las 3 son necesarias. Fa0/1 es la interfaz que permite la conexión directa entre el switch a la PC y Fa0/2 permite la conexión entre ambos switches y la Vlan1 es la interfaz que une la red.
+
+Si se quisiera deshabilitar una interfaz porque no se usa, se tendría que ir a esa interfaz y usar el comando ```shutdown``` para inhabilitarla administrativamente.
+
+f) Para guardar las configuraciones realizadas, se usa el comando ```write memory``` (equivale a ```copy running-config startup-config```).
+
+g) Para probar las conexiones entre las PC se usó ```ping <ip de la otra pc>```:
+
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/f85d18a0-2c9a-4994-b12c-f9a10de26ede" />
+
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/6e58d75c-a70c-4dcb-96d7-2ddfe6bb6182" />
+
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/81e8d56f-5e34-42f7-8e02-63c2f2af210b" />
+
+Pero se tuvo que modificar la ip de las vlan a 192.168.10.11 y 192.168.10.12 para que todos los dispositivos estén en la misma red y no tener que agregar un router.
+
+h) Se crean VLANs en ambos switches:
+
+```
+sw1(config)# vlan 10
+sw1(config-vlan)# name Laboratorio
+sw1(config-vlan)# vlan 20
+sw1(config-vlan)# name Bar
+sw1(config-vlan)# vlan 99
+sw1(config-vlan)# name Management
+sw1(config-vlan)# end
+```
+
+i) 
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/f19093db-c758-49cc-a3d2-08e032857e59" />
+
+La VLAN por defecto es la VLAN 1.
+
+j) Se asigna el puerto f0/6 de la PC-A a la VLAN Laboratorio (vlan 10), esto implica que este puerto ahora será un punto de acceso a VLAN Laboratorio:
+
+```
+SW-1#config t
+Enter configuration commands, one per line. End with CNTL/Z.
+SW-1(config)#interface f0/6
+SW-1(config-if)#switchport mode access
+SW-1(config-if)#switchport access vlan 10
+```
+
+k) Desde la VLAN 1, remover la ip de Management y configurarla para funcionar en la VLAN 99 (que configuramos como Management). Esto se hace ya que usar VLAN 1 para administración es una mala práctica de seguridad. Esta tiene todos los puertos activos por defecto y se usa para muchas funciones internas. Por esto, dejar la IP de management ahí la hace vulnerable y accesible desde cualquier puerto del switch.
+Con este ejercicio se pretende que la VLAN 99 se vuelva una red de administración aislada, donde solo los administradores pueden conectarse a configurar el switch.
+
+```
+sw1(config)# interface vlan 1
+sw1(config-if)# no ip address
+sw1(config-if)# interface vlan 99
+sw1(config-if)# ip address 192.168.10.11 255.255.255.0
+sw1(config-if)# end
+```
+
+l) Verificar el estado de la VLAN utilizando show vlan brief y el estado de las interfaces
+utilizando show ip interface brief. Colocar los output en el informe e interpretar.
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/b8726e74-111a-4469-a3bc-ff6108e971ba" />
+
+Aquí se puede ver los puertos físicos asociados a los diferentes puertos y como la VLAN 1 está asociada a todos. También como se asoció el puerto Fa0/6 para que solo este esté asociado a la VLAN Laboratorio (10) que se creó con anterioridad.
+
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/03fffc06-434d-4a5b-a424-2350fb7ef533" />
+
+Como vemos en la imagen anterior, la ip de la VLAN 1 se borró y se agregó una ip en la VLAN 99 (Management), por lo cual ahora la ip de administración está ahí en donde solo puede ser accedida por los puertos que se asocien a esta red, la cual todavía no tiene puertos asignados al ver down en Protocol. 
+
+m) Se asigna la PC-B a la VLAN Laboratorio (10) en el sw2.
+
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/2a0b6e5e-e724-49e0-98d7-36c97f0a7d4d" />
+
+Sigue down en Protocol porque no se asignó todavía un puerto físico a esta red (Se le asignó el fa0/6 pero en la PC-A). 
+
+n) Verificar la conectividad entre PC-A y PC-B utilizando pings.
+
+Conexión entre PC-A y PC-B: 
+
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/48da9629-51fc-4efb-aceb-2b0cf61af57b" />
+
+Conexión entre PC-B y PC-A:
+
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/7cba55c6-242f-451f-bb84-b1ce18f15f01" />
+
+Nota: se tuvo que asignar los puertos fa0/1 y fa0/2 a las nuevas VLANs de admin ya que sino no se podían comunicar.
+
+Conexión entre SW-2 y SW-1:
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/718bc6c6-8f2d-46d2-80e4-0de9e7c4e5e0" />
+
+
+Conexión entre SW-1 y SW-2:
+
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/0315f25e-3da2-4260-8656-0c032b166149" />
+
+Gracias a los pings se puede determinar que tanto las PCs como los switch están conectados correctamente entre ellos ya que con este comando se prueba el envio de mensajes y la recepcion entre un dispositivo y el otro.
+
 ...
 
 ### LAN Aeronave
