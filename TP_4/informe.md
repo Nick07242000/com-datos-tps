@@ -15,7 +15,7 @@
 
 **Santiago M. Henn - Miguel Solinas** 
 
-**27/10/2025**
+**12/11/2025**
 
 ---
 
@@ -78,7 +78,7 @@ Las Access Control Lists (ACLs) son conjuntos de reglas aplicadas a las interfac
 ### 1) Alcance de Redes y Virtualización
 
 
-### a) Clasificacion de las redes según su cobertura geografica:
+#### a) Clasificacion de las redes según su cobertura geografica:
 
 | Tipo de Red                       | Acrónimo | Alcance típico        | Características principales                                               | Tecnologías / Ejemplos                                     |
 |----------------------------------|:--------:|------------------------|---------------------------------------------------------------------------|------------------------------------------------------------|
@@ -92,10 +92,10 @@ Las Access Control Lists (ACLs) son conjuntos de reglas aplicadas a las interfac
 | Red de Almacenamiento            | **SAN**  | Limitada al data center| Red dedicada exclusivamente al intercambio de datos de almacenamiento.    | Fibre Channel, iSCSI; Centros de datos empresariales        |
 
 
-### b) VLAN (Virtual Local Area Network)
+#### b) VLAN (Virtual Local Area Network)
 Una VLAN es una red lógica que permite dividir una red física (como la de un switch) en múltiples redes virtuales independientes, sin necesidad de modificar el cableado ni la infraestructura. Cada VLAN forma un dominio de broadcast propio, por lo que los dispositivos dentro de una misma VLAN pueden comunicarse entre sí, pero no con los de otras VLAN a menos que exista un router o switch de capa 3 que realice inter-VLAN routing.
 
-### Ventajas:
+##### Ventajas:
 | Ventaja          | Descripción                                                                 |
 |------------------|-----------------------------------------------------------------------------|
 | Seguridad         | Aísla el tráfico entre grupos, evitando accesos no autorizados.            |
@@ -103,7 +103,7 @@ Una VLAN es una red lógica que permite dividir una red física (como la de un s
 | Mejor rendimiento | Reduce el tamaño del dominio de broadcast, disminuyendo tráfico excesivo. |
 | Escalabilidad     | Facilita la expansión y reorganización de la red.                          |
 
-### Clasificacion:
+##### Clasificacion:
 | Tipo de VLAN                | Descripción                                                                 |
 |-----------------------------|-----------------------------------------------------------------------------|
 | Port-based VLAN             | Cada puerto del switch se asigna manualmente a una VLAN.                    |
@@ -111,23 +111,22 @@ Una VLAN es una red lógica que permite dividir una red física (como la de un s
 | Protocol-based VLAN         | Clasifica el tráfico según el protocolo utilizado (IP, IPX, AppleTalk).     |
 | Network-based VLAN (IP)     | Determina la VLAN en función de la subred IP del dispositivo.               |
 
-### VLANs especiales:
+##### VLANs especiales:
 | VLAN              | Función                                                                               |
 |------------------|---------------------------------------------------------------------------------------|
 | VLAN 1            | VLAN por defecto, usada inicialmente para administración básica y control del switch. |
 | VLAN nativa       | Transporta tramas sin etiqueta (untagged) en enlaces trunk.                           |
 | VLAN de gestión   | VLAN dedicada a la administración de dispositivos de red (ejemplo: VLAN 99).         |
 
----------------------------
-### c) Protocolo IEEE 802.1Q y su relación con las VLAN
 
+#### c) Protocolo IEEE 802.1Q y su relación con las VLAN
 
 **IEEE 802.1Q** es el estándar que define cómo se identifican y transportan **VLANs** a través de redes Ethernet. Permite que varias redes lógicas compartan la misma infraestructura física sin perder el aislamiento entre ellas.
 
 En lugar de tener un cable o switch por cada red, 802.1Q  etiqueta las tramas Ethernet para indicar a qué VLAN pertenecen, haciendo posible que un solo enlace físico (enlace **trunk**) transporte tráfico de múltiples VLANs.
 
 
-### ¿Cómo se relaciona con las VLAN?
+##### ¿Cómo se relaciona con las VLAN?
 
 Gracias a 802.1Q se puede:
 
@@ -139,8 +138,8 @@ Gracias a 802.1Q se puede:
 
 Sin este estándar, las VLAN solo funcionarían dentro de un mismo switch.
 
----
-### d)  ¿Qué es el Tagging?
+
+#### d) ¿Qué es el Tagging?
 
 **Tagging** es el proceso mediante el cual un switch **inserta una etiqueta (tag) 802.1Q** en una trama Ethernet para indicar **a qué VLAN pertenece**.  
 Este mecanismo permite que **múltiples VLANs compartan un mismo enlace físico** sin perder el aislamiento lógico del tráfico.
@@ -167,7 +166,7 @@ Sin el tagging, todas las tramas que viajan entre switches serían indistinguibl
 
 
 ---
-### Topologia Packet Tracer
+### 2) Topologia Packet Tracer
 
 Se implementa la siguiente topología de red en packet tracer:
 
@@ -338,9 +337,9 @@ Conexión entre SW-1 y SW-2:
 
 Gracias a los pings se puede determinar que tanto las PCs como los switch están conectados correctamente entre ellos ya que con este comando se prueba el envio de mensajes y la recepcion entre un dispositivo y el otro.
 
-...
+---
 
-### LAN Aeronave
+### 3) LAN Aeronave
 
 Simulamos el despliegue de una red LAN a bordo de una aeronave, con la siguiente configuracion:
 - Clase Turista --> acceso a solo un sistema de entretenimiento (server local)
@@ -562,7 +561,11 @@ Y configuramos una IP estatica para el server:
 
 ## Discusión y conclusiones
 
-...
+La implementación realizada permitió comprender de manera práctica cómo las tecnologías de virtualización de redes y los mecanismos de control de acceso contribuyen a la organización, seguridad y eficiencia de las redes locales modernas. A través del uso de VLANs, se logró segmentar el dominio de broadcast, aislando distintos tipos de tráfico según el perfil o función de cada grupo de usuarios. Esto evidenció las ventajas de la segmentación lógica frente a las limitaciones de una red plana, especialmente en entornos con múltiples servicios y requisitos de seguridad diferenciados.
+
+El escenario de la LAN a bordo de una aeronave sirvió como caso de aplicación para integrar todos los conceptos teóricos. Se verificó que las VLANs se aislaron correctamente, que los clientes obtuvieron sus direcciones IP mediante DHCP, y que las políticas de acceso definidas (por ejemplo, acceso restringido a Internet para pasajeros de clase turista) funcionaron tal como se esperaba. Las pruebas de conectividad (ping y acceso HTTP) confirmaron el correcto enrutamiento inter-VLAN y la efectividad de las listas de control.
+
+En síntesis, este trabajo permitió consolidar conocimientos fundamentales sobre capas de acceso, segmentación lógica, virtualización de redes y control de tráfico, integrando teoría y práctica mediante simulaciones en Cisco Packet Tracer. La experiencia reforzó la importancia del diseño jerárquico y seguro de la infraestructura de red, destacando el rol de las VLANs, 802.1Q, NAT y ACLs en la administración de redes LAN modernas.
 
 ---
 
