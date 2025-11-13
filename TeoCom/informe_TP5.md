@@ -23,6 +23,10 @@ Se diferencia del modelo tradicional Cliente-Servidor en que el remitente y el r
 Requerimiento: Debes configurar y ejecutar un broker MQTT (puedes usar HiveMQ, Mosquitto o EMQX).
 
 ## Insertar imagenes
+<img width="1312" height="578" alt="image" src="https://github.com/user-attachments/assets/b07b401e-1a70-4245-8d6a-842e3f2b406e" />
+<img width="689" height="564" alt="image" src="https://github.com/user-attachments/assets/0fd88cdc-48a4-409a-a270-c133f39ef7c4" />
+
+
 
 Detalles del ejemplo (HiveMQ Cloud):
 URL: 42914cf0bb8a4cf690bb8f26149dc983.s1.eu.hivemq.cloud 
@@ -57,4 +61,5 @@ Ambos clientes suscritos a lan/broadcast/# recibirán el mensaje publicado en la
 <img width="1361" height="706" alt="Captura de pantalla 2025-11-13 110355" src="https://github.com/user-attachments/assets/632e0d8f-fd02-4be6-a8ed-f81605f0e75e" />
 
 <img width="1365" height="715" alt="Captura de pantalla 2025-11-13 110422" src="https://github.com/user-attachments/assets/f9591b50-466f-411d-8f27-1584fda0b0cc" />
+
 
