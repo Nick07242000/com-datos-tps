@@ -36,6 +36,9 @@ Verificación: Suscribirte a un tópico (ejemplo: test) y publicar un mensaje (e
 
 Ejemplo en imagen: Muestra un cliente web conectado (The WebClient is connected) y recibiendo un mensaje en el tópico test.
 ## poner las capturas de pantalla
+<img width="1363" height="704" alt="Captura de pantalla 2025-11-13 104659" src="https://github.com/user-attachments/assets/88783e17-6b18-41d3-a15d-72a0ef5c496c" />
+
+
 
 4) Arquitectura Funcional
 4a) Comunicación Directa (Punto a Punto simulado):
@@ -49,4 +52,9 @@ Configura al menos dos clientes para suscribirse a lan/broadcast/#.
 Desde un cliente "central", publica mensajes en lan/broadcast/all.
 Ambos clientes suscritos a lan/broadcast/# recibirán el mensaje publicado en lan/broadcast/all.
 
+
 ## Imagenes del punto 4
+<img width="1361" height="706" alt="Captura de pantalla 2025-11-13 110355" src="https://github.com/user-attachments/assets/632e0d8f-fd02-4be6-a8ed-f81605f0e75e" />
+
+<img width="1365" height="715" alt="Captura de pantalla 2025-11-13 110422" src="https://github.com/user-attachments/assets/f9591b50-466f-411d-8f27-1584fda0b0cc" />
+
