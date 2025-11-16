@@ -241,6 +241,6 @@ Este trabajo mostró que MQTT es una solución efectiva para recolectar telemetr
 
 ## Referencias
 
-- [Cisco Networking Academy. (2023). Introduction to Networks (Version 7.0) – Course Booklet. Cisco Press.]  (https://www.netacad.com/courses/ccna-introduction-networks)
+- [Cisco Networking Academy. (2023). Introduction to Networks (Version 7.0) – Course Booklet. Cisco Press.](https://www.netacad.com/courses/ccna-introduction-networks)
 - [PUB/SUB](https://ably.com/topic/pub-sub)
 - [MQTT](https://www.geeksforgeeks.org/computer-networks/introduction-of-message-queue-telemetry-transport-protocol-mqtt/)
