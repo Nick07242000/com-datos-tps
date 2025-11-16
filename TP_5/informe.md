@@ -149,6 +149,51 @@ En la imagen podemos observar un cliente web conectado (The WebClient is connect
 <img width="1414" height="777" alt="image" src="https://github.com/user-attachments/assets/87f388a7-e6e9-47ff-b02d-9a55d82baf59" />
 <img width="1416" height="778" alt="image" src="https://github.com/user-attachments/assets/a9564b0c-9905-414b-9b72-fed651cc6bcd" />
 
+
+### Jerarquia de Topicos
+
+A continuacion implementamos una jerarquia de topicos para registrar datos (simulados) de temperatura y humedad en distintas salas:
+- lan/sala1/sensor/temp
+- lan/sala1/sensor/hum
+- lan/sala2/sensor/temp
+
+Para esto generamos publishers que simulan sensores que toman datos de temperatura o humedad y los publican a su topico correspondiente, particularmente:
+- temperature_sensor: lan/sala1/sensor/temp
+- temperature_sensor: lan/sala2/sensor/temp
+- humidity_sensor: lan/sala1/sensor/hum
+
+Estos datos son recibidos en un gateway que obtiene los datos de todas las salas y todos los sensores, para lo cual nos subscribimos al topico jerarquico:
+- lan/+/sensor/+
+
+Este gateway registra los datos en un csv para su posterior visualizacion en Grafana.
+
+### Q&A
+
+a) ¿Sobre qué protocolos de capa de transporte están trabajando en esta actividad?
+
+...
+
+b) ¿Qué pueden decir sobre la garantía de Integridad, Confidencialidad y Disponibilidad en esta
+arquitectura?
+
+...
+
+c) ¿Qué rol juegan los niveles de QoS en la fiabilidad de los mensajes?
+
+...
+
+d) ¿Qué ventajas ofrece el modelo pub/sub frente al modelo cliente-servidor?
+
+...
+
+e) ¿Qué limitaciones tiene MQTT respecto a una red LAN real?
+
+...
+
+f) ¿Qué implicaciones tiene depender de un broker central para la comunicación?
+
+...
+
 ---
 
 ## Discusión y conclusiones
