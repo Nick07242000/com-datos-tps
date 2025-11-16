@@ -191,35 +191,56 @@ El protocolo de la capa de transporte es TCP, pudiendo apreciarse ACKs en la ima
 
 ### Q&A
 
-a) ¿Sobre qué protocolos de capa de transporte están trabajando en esta actividad?
+a) En esta actividad, se trabaja principalmente con TCP (Protocolo de Control de Transmisión), el protocolo de capa de transporte estándar sobre el que opera MQTT.
+MQTT utiliza TCP/IP en el puerto 8883 para conexiones seguras mediante TLS/SSL, asegurando una comunicación confiable, orientada a conexión, con entrega ordenada y sin pérdidas de paquetes.
 
-...
+b)
 
-b) ¿Qué pueden decir sobre la garantía de Integridad, Confidencialidad y Disponibilidad en esta
-arquitectura?
+- Integridad: se apoya principalmente en la capa de transporte (TCP), y cuando se usa TLS, en los mecanismos criptograficos de TLS que detectan manipulaciones. TCP incorpora sumas de comprobación que detectan corrupción de paquetes en tránsito y los niveles de QoS (1 y 2) aportan confirmaciones y retransmisión a nivel MQTT, reduciendo la probabilidad de que un mensaje válido se pierda o quede corrupto. Sin protección TLS, un atacante con acceso a la red podría modificar mensajes antes de que lleguen al broker.
 
-...
+- Confidencialidad: se logra cifrando la conexión cliente–broker con TLS. Con TLS activo, el contenido de los mensajes y las credenciales quedan protegidos frente a escuchas pasivas. Si no hay TLS, los mensajes viajan en texto plano y pueden ser leídos por cualquier agente con acceso a la red.
 
-c) ¿Qué rol juegan los niveles de QoS en la fiabilidad de los mensajes?
+- Disponibilidad: depende en gran medida del broker: al ser el punto central por donde pasa todo el tráfico MQTT, su caída interrumpe la comunicación entre dispositivos.
 
-...
+c) Rol de los niveles de QoS en la fiabilidad:
 
-d) ¿Qué ventajas ofrece el modelo pub/sub frente al modelo cliente-servidor?
+- QoS 0: envío sin acuse, rápido y con bajo overhead, pero no existe garantía de entrega además de la fiabilidad que ofrece TCP en la conexión. 
 
-...
+- QoS 1: el emisor exige confirmación(PUBACK), garantiza que el mensaje llegará al menos una vez, pero pueden producirse duplicados. 
 
-e) ¿Qué limitaciones tiene MQTT respecto a una red LAN real?
+- QoS 2: utiliza un protocolo de cuatro pasos para asegurar que el mensaje se entregue exactamente una vez, evitando duplicados, esto añade latencia y coste computacional. 
 
-...
 
-f) ¿Qué implicaciones tiene depender de un broker central para la comunicación?
+d) Ventajas del modelo pub/sub frente al cliente-servidor:
 
-...
+- Desacoplamiento: los productores no necesitan conocer a los consumidores (ni sus direcciones ni su estado), lo que simplifica la evolución y escalado del sistema.
+- Escalabilidad y difusión eficiente: un único mensaje publicado puede entregarse a muchos suscriptores mediante el broker.
+- Asincronía y tolerancia a desconexiones: los clientes pueden publicar o suscribirse sin que ambos estén activos al mismo tiempo.
+- Flexibilidad en enrutamiento lógico: tópicos jerárquicos y comodines permiten seleccionar subsets de mensajes sin reconfigurar el sistema.
+
+
+e) Limitaciones de MQTT respecto a una red LAN real
+
+- Centralización: la necesidad de un broker introduce un nodo de coordinación que no existe en una comunicación punto a punto típica de una LAN, la comunicación entre dispositivos pasa por el broker en lugar de usar enlaces directos.
+- No aprovecha multicast L2/L3 nativo: el “broadcast” lógico se realiza por el broker, no por mecanismos de la red local, por lo que no sustituye a servicios que dependen de multicast físico.
+- Escalabilidad para grandes volúmenes o ficheros: MQTT está optimizado para mensajes pequeños, para transferencias pesadas (vídeo, archivos grandes) no es eficiente.
+- Visibilidad de la red: MQTT abstrae detalles de la red subyacente (p. ej. rutas, switching), por lo que no refleja comportamientos específicos de una LAN real.
+- Seguridad por configuración: la protección real depende de habilitar TLS, autenticación y ACLs, sin configuración adecuada queda expuesto, incluso en una LAN.
+
+f) Implicaciones de depender de un broker central:
+
+Depender de un broker central implica varias consecuencias operativas y de seguridad: el broker se convierte en un punto único de falla y, si no se dimensiona o replica adecuadamente, puede ser también un cuello de botella que limite el rendimiento del sistema. Esta centralización concentra credenciales, políticas y mensajes, de modo que una vulneración del broker compromete la confidencialidad e integridad de gran parte de la plataforma. Por otro lado, la existencia de un broker facilita la aplicación de controles centralizados (autenticación, ACLs, logging y auditoría), pero exige mantenimiento, monitorización y planes claros de recuperación ante fallos, de lo contrario, la pérdida del broker puede provocar interrupciones significativas y pérdida de mensajes si no existe persistencia.
 
 ---
 
 ## Discusión y conclusiones
+Este trabajo mostró que MQTT es una solución efectiva para recolectar telemetría y controlar sensores en arquitecturas IoT ligeras: el modelo pub/sub facilita el desacoplamiento, la difusión eficiente y la tolerancia a desconexiones. Los niveles de QoS permiten ajustar la fiabilidad según la criticidad de los mensajes, y TLS asegura confidencialidad e integridad en tránsito si está bien configurado. La principal limitación es la dependencia de un broker central, que exige diseñar redundancia y buenas prácticas de seguridad y monitoreo para uso en producción.
+
 
 ---
 
 ## Referencias
+
+- [Cisco Networking Academy. (2023). Introduction to Networks (Version 7.0) – Course Booklet. Cisco Press.]  (https://www.netacad.com/courses/ccna-introduction-networks)
+- [PUB/SUB](https://ably.com/topic/pub-sub)
+- [MQTT](https://www.geeksforgeeks.org/computer-networks/introduction-of-message-queue-telemetry-transport-protocol-mqtt/)
