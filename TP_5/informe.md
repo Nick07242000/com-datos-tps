@@ -154,13 +154,15 @@ En la imagen podemos observar un cliente web conectado (The WebClient is connect
 
 A continuacion implementamos una jerarquia de topicos para registrar datos (simulados) de temperatura y humedad en distintas salas:
 - lan/sala1/sensor/temp
-- lan/sala1/sensor/hum
 - lan/sala2/sensor/temp
+- lan/sala1/sensor/hum
+- lan/sala2/sensor/hum
 
 Para esto generamos publishers que simulan sensores que toman datos de temperatura o humedad y los publican a su topico correspondiente, particularmente:
 - temperature_sensor: lan/sala1/sensor/temp
 - temperature_sensor: lan/sala2/sensor/temp
 - humidity_sensor: lan/sala1/sensor/hum
+- humidity_sensor: lan/sala2/sensor/hum
 
 Estos datos son recibidos en un gateway que obtiene los datos de todas las salas y todos los sensores, para lo cual nos subscribimos al topico jerarquico:
 - lan/+/sensor/+
