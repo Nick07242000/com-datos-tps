@@ -167,7 +167,10 @@ Para esto generamos publishers que simulan sensores que toman datos de temperatu
 Estos datos son recibidos en un gateway que obtiene los datos de todas las salas y todos los sensores, para lo cual nos subscribimos al topico jerarquico:
 - lan/+/sensor/+
 
-Este gateway registra los datos en un csv para su posterior visualizacion en Grafana.
+Este gateway registra los datos en un csv para su posterior visualizacion en [Grafana](https://fabianhidalgo.grafana.net/d/famhsmg/tp5?dashboardLibraryDatasourceUid=df4b9l3bvak8wc&orgId=1&from=2025-11-16T13:19:09.941Z&to=2025-11-16T13:20:22.943Z&timezone=browser&tab=transformations&editPanel=1).
+
+<img width="2208" height="591" alt="image" src="https://github.com/user-attachments/assets/fc18f7e7-52de-493c-8867-260e0ab97aad" />
+
 
 ### Q&A
 
