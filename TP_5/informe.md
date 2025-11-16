@@ -171,6 +171,23 @@ Este gateway registra los datos en un csv para su posterior visualizacion en [Gr
 
 <img width="2208" height="591" alt="image" src="https://github.com/user-attachments/assets/fc18f7e7-52de-493c-8867-260e0ab97aad" />
 
+Luego, agregamos el accionado de los sensores por comando. Para lograr esto cada sensor se subscribe a un topico de broadcast para escuchar comandos, y solo comienzar a sensar al recibir el command ON, finalizando al recibir OFF:
+
+<img width="1357" height="609" alt="image" src="https://github.com/user-attachments/assets/c2f275c7-8448-4fc5-8c59-1d5ba0d1de49" />
+<img width="1050" height="438" alt="image" src="https://github.com/user-attachments/assets/2bc2fde8-f2bc-4c2f-855c-f7838ae751cc" />
+<img width="1458" height="761" alt="image" src="https://github.com/user-attachments/assets/4a9383eb-f4b1-4abe-80d7-a14239f10c9a" />
+<img width="1426" height="756" alt="image" src="https://github.com/user-attachments/assets/10d314bc-7a5f-40a2-8b3d-12663a1678ff" />
+
+Puede observarse que despues de enviar OFF, se terminar de procesar los mensajes que estaban en el topico, pero los clientes ya no envian mas.
+
+Finalmente, analizamos un paquete enviado usando el protocolo MQTT TLS capturado con Wireshark:
+
+<img width="2283" height="1232" alt="image" src="https://github.com/user-attachments/assets/aa3a3509-5031-4ab2-be7f-9d9ae5654d3a" />
+
+El paquete analizado (Frame 39) corresponde a tráfico MQTT asegurado con TLS (puerto TCP 8883). 
+La captura muestra un paquete TCP (PSH,ACK) de 33 bytes de payload, transportando un registro TLSv1.2 de 28 bytes. 
+Debido al cifrado TLS no es posible extraer el tópico ni el contenido del mensaje MQTT; únicamente puede documentarse la cabecera Ethernet/IP/TCP, el tamaño del registro TLS y las métricas temporales.
+El protocolo de la capa de transporte es TCP, pudiendo apreciarse ACKs en la imagen, y el protocolo de la capa de aplicación es TLS sobre MQTT, por esto se observa TLSv1.X en los paquetes capturados, donde el trafico es envuelto en la capa de cifrado TLS.
 
 ### Q&A
 
