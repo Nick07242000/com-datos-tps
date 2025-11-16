@@ -135,12 +135,19 @@ En la imagen podemos observar un cliente web conectado (The WebClient is connect
 - Creamos el Dispositivo A que publica en el tópico lan/deviceA/status.
 - Creamos el Dispositivo B que se suscribe al tópico lan/deviceA/status y muestra los mensajes.
 
+<img width="1300" height="297" alt="image" src="https://github.com/user-attachments/assets/36c675cd-718e-4eb6-9fb9-6c5e29e0c7d0" />
+<img width="1363" height="698" alt="image" src="https://github.com/user-attachments/assets/e7fa13e3-bcd3-4c79-abbf-a2fa903dab70" />
+
 #### Broadcasting:
 
 - Creamos el tópico general lan/broadcast/# (el # es un comodín de múltiples niveles).
 - Configuramos dos clientes para suscribirse a lan/broadcast/#.
 - Desde un cliente "central", publicamos mensajes en lan/broadcast/all.
 - Ambos clientes suscritos a lan/broadcast/# reciben el mensaje publicado en lan/broadcast/all.
+
+<img width="1296" height="297" alt="image" src="https://github.com/user-attachments/assets/3a6f0a7e-a4a2-4db9-bdbb-a5213eaf3a11" />
+<img width="1414" height="777" alt="image" src="https://github.com/user-attachments/assets/87f388a7-e6e9-47ff-b02d-9a55d82baf59" />
+<img width="1416" height="778" alt="image" src="https://github.com/user-attachments/assets/a9564b0c-9905-414b-9b72-fed651cc6bcd" />
 
 ---
 
